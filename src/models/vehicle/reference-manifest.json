@@ -1,0 +1,4133 @@
+{
+  "schemaVersion": 1,
+  "assetId": "ferrari-458-reference",
+  "url": "/models/ferrari.glb",
+  "sha256": "cafe3f48da6797aa9bde75ca768bc5b57db366575fd233e90df186ae988a876e",
+  "byteLength": 1681572,
+  "licenseStatus": "original-license-unverified",
+  "coordinateSystem": "glTF right-handed Y-up; model front -Z; source units not independently verified",
+  "counts": {
+    "nodes": 58,
+    "meshNodes": 51,
+    "meshes": 51,
+    "selectable": 17
+  },
+  "components": [
+    {
+      "id": "reference.node.0",
+      "sourceNodeIndex": 0,
+      "sourceName": "RootNode",
+      "displayName": "RootNode (group)",
+      "parentId": null,
+      "category": "aggregate",
+      "kind": "assembly",
+      "originalTransform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          0,
+          0,
+          0
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": null,
+      "materials": [],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.1",
+      "sourceNodeIndex": 1,
+      "sourceName": "main",
+      "displayName": "main (group)",
+      "parentId": "reference.node.0",
+      "category": "aggregate",
+      "kind": "assembly",
+      "originalTransform": {
+        "position": [
+          0.00000148773187902407,
+          0.676180720329285,
+          0.00000267028804046276
+        ],
+        "quaternion": [
+          -0.5,
+          -0.5,
+          -0.5,
+          0.5
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0.00000148773187902407,
+          0.676180720329285,
+          0.00000267028804046276,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          0.00000148773187902407,
+          0.676180720329285,
+          0.00000267028804046276
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": null,
+      "materials": [],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.2",
+      "sourceNodeIndex": 2,
+      "sourceName": "trim",
+      "displayName": "trim (merged geometry)",
+      "parentId": "reference.node.1",
+      "category": "aggregate",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          -0.379132658243179,
+          -0.00438785552978516,
+          -0.0159297175705433
+        ],
+        "quaternion": [
+          3.99028720555326e-34,
+          6.16297582203915e-33,
+          3.30872245021211e-24,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          6.61744490042422e-24,
+          -1.23259516440783e-32,
+          0,
+          -6.61744490042422e-24,
+          1,
+          7.98057441110652e-34,
+          0,
+          1.23259516440783e-32,
+          -7.98057441110652e-34,
+          1,
+          0,
+          -0.379132658243179,
+          -0.00438785552978516,
+          -0.0159297175705433,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.004386367797906136,
+          0.6602510027587417,
+          -0.3791299879551385
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 0,
+      "materials": [
+        "Leather_red"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.3",
+      "sourceNodeIndex": 3,
+      "sourceName": "lights_red",
+      "displayName": "lights_red (merged geometry)",
+      "parentId": "reference.node.1",
+      "category": "aggregate",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          0.913189649581909,
+          -0.00397979747503996,
+          -0.00631988514214754
+        ],
+        "quaternion": [
+          3.99028720555326e-34,
+          6.16297582203915e-33,
+          3.30872245021211e-24,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          6.61744490042422e-24,
+          -1.23259516440783e-32,
+          0,
+          -6.61744490042422e-24,
+          1,
+          7.98057441110652e-34,
+          0,
+          1.23259516440783e-32,
+          -7.98057441110652e-34,
+          1,
+          0,
+          0.913189649581909,
+          -0.00397979747503996,
+          -0.00631988514214754,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.003978309743160936,
+          0.6698608351871375,
+          0.9131923198699494
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 2,
+      "materials": [
+        "Taillight_Glass"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.4",
+      "sourceNodeIndex": 4,
+      "sourceName": "plastic_gray",
+      "displayName": "plastic_gray (merged geometry)",
+      "parentId": "reference.node.1",
+      "category": "aggregate",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          0.108428329229355,
+          -0.00097260472830385,
+          -0.0287055969238281
+        ],
+        "quaternion": [
+          3.99028720555326e-34,
+          6.16297582203915e-33,
+          3.30872245021211e-24,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          6.61744490042422e-24,
+          -1.23259516440783e-32,
+          0,
+          -6.61744490042422e-24,
+          1,
+          7.98057441110652e-34,
+          0,
+          1.23259516440783e-32,
+          -7.98057441110652e-34,
+          1,
+          0,
+          0.108428329229355,
+          -0.00097260472830385,
+          -0.0287055969238281,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.000971116996424826,
+          0.6474751234054569,
+          0.10843099951739546
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 5,
+      "materials": [
+        "plastic_gray"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.5",
+      "sourceNodeIndex": 5,
+      "sourceName": "metal",
+      "displayName": "metal (merged geometry)",
+      "parentId": "reference.node.1",
+      "category": "aggregate",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          0.2176593542099,
+          -0.00488126743584871,
+          -0.00198959349654615
+        ],
+        "quaternion": [
+          3.99028720555326e-34,
+          6.16297582203915e-33,
+          3.30872245021211e-24,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          6.61744490042422e-24,
+          -1.23259516440783e-32,
+          0,
+          -6.61744490042422e-24,
+          1,
+          7.98057441110652e-34,
+          0,
+          1.23259516440783e-32,
+          -7.98057441110652e-34,
+          1,
+          0,
+          0.2176593542099,
+          -0.00488126743584871,
+          -0.00198959349654615,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.004879779703969686,
+          0.6741911268327389,
+          0.21766202449794048
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 6,
+      "materials": [
+        "metal_gray"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.6",
+      "sourceNodeIndex": 6,
+      "sourceName": "lights",
+      "displayName": "lights (merged geometry)",
+      "parentId": "reference.node.1",
+      "category": "aggregate",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          -1.84539520740509,
+          -0.00198486330918968,
+          -0.0674612820148468
+        ],
+        "quaternion": [
+          3.99028720555326e-34,
+          6.16297582203915e-33,
+          3.30872245021211e-24,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          6.61744490042422e-24,
+          -1.23259516440783e-32,
+          0,
+          -6.61744490042422e-24,
+          1,
+          7.98057441110652e-34,
+          0,
+          1.23259516440783e-32,
+          -7.98057441110652e-34,
+          1,
+          0,
+          -1.84539520740509,
+          -0.00198486330918968,
+          -0.0674612820148468,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.0019833755773106558,
+          0.6087194383144382,
+          -1.8453925371170496
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 20,
+      "materials": [
+        "Projector_Glass"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.7",
+      "sourceNodeIndex": 7,
+      "sourceName": "leds",
+      "displayName": "leds (merged geometry)",
+      "parentId": "reference.node.1",
+      "category": "aggregate",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          -1.26507675647736,
+          -0.000972824054770172,
+          0.0221391282975674
+        ],
+        "quaternion": [
+          3.99028720555326e-34,
+          6.16297582203915e-33,
+          3.30872245021211e-24,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          6.61744490042422e-24,
+          -1.23259516440783e-32,
+          0,
+          -6.61744490042422e-24,
+          1,
+          7.98057441110652e-34,
+          0,
+          1.23259516440783e-32,
+          -7.98057441110652e-34,
+          1,
+          0,
+          -1.26507675647736,
+          -0.000972824054770172,
+          0.0221391282975674,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.0009713363228911479,
+          0.6983198486268524,
+          -1.2650740861893195
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 21,
+      "materials": [
+        "Turn_Signal_LED"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.8",
+      "sourceNodeIndex": 8,
+      "sourceName": "leather",
+      "displayName": "leather (merged geometry)",
+      "parentId": "reference.node.1",
+      "category": "aggregate",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          -0.347728848457336,
+          -0.00202526082284749,
+          -0.0309553518891335
+        ],
+        "quaternion": [
+          3.99028720555326e-34,
+          6.16297582203915e-33,
+          3.30872245021211e-24,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          6.61744490042422e-24,
+          -1.23259516440783e-32,
+          0,
+          -6.61744490042422e-24,
+          1,
+          7.98057441110652e-34,
+          0,
+          1.23259516440783e-32,
+          -7.98057441110652e-34,
+          1,
+          0,
+          -0.347728848457336,
+          -0.00202526082284749,
+          -0.0309553518891335,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.002023773090968466,
+          0.6452253684401515,
+          -0.3477261781692955
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 22,
+      "materials": [
+        "Leather"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.9",
+      "sourceNodeIndex": 9,
+      "sourceName": "interior_light",
+      "displayName": "interior_light (merged geometry)",
+      "parentId": "reference.node.1",
+      "category": "aggregate",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          0.00469360267743468,
+          -0.00388454482890666,
+          -0.00350234983488917
+        ],
+        "quaternion": [
+          3.99028720555326e-34,
+          6.16297582203915e-33,
+          3.30872245021211e-24,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          6.61744490042422e-24,
+          -1.23259516440783e-32,
+          0,
+          -6.61744490042422e-24,
+          1,
+          7.98057441110652e-34,
+          0,
+          1.23259516440783e-32,
+          -7.98057441110652e-34,
+          1,
+          0,
+          0.00469360267743468,
+          -0.00388454482890666,
+          -0.00350234983488917,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.003883057097027636,
+          0.6726783704943958,
+          0.004696272965475143
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 24,
+      "materials": [
+        "Interior_dark"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.10",
+      "sourceNodeIndex": 10,
+      "sourceName": "grills",
+      "displayName": "grills (merged geometry)",
+      "parentId": "reference.node.1",
+      "category": "aggregate",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          0.0483595207333565,
+          -0.00683559896424413,
+          -0.0329902656376362
+        ],
+        "quaternion": [
+          3.99028720555326e-34,
+          6.16297582203915e-33,
+          3.30872245021211e-24,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          6.61744490042422e-24,
+          -1.23259516440783e-32,
+          0,
+          -6.61744490042422e-24,
+          1,
+          7.98057441110652e-34,
+          0,
+          1.23259516440783e-32,
+          -7.98057441110652e-34,
+          1,
+          0,
+          0.0483595207333565,
+          -0.00683559896424413,
+          -0.0329902656376362,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.006834111232365106,
+          0.6431904546916488,
+          0.04836219102139696
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 30,
+      "materials": [
+        "Tires"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.11",
+      "sourceNodeIndex": 11,
+      "sourceName": "glass",
+      "displayName": "glass (merged geometry)",
+      "parentId": "reference.node.1",
+      "category": "aggregate",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          0.00117645226418972,
+          -0.00191101070959121,
+          0.193604275584221
+        ],
+        "quaternion": [
+          3.99028720555326e-34,
+          6.16297582203915e-33,
+          3.30872245021211e-24,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          6.61744490042422e-24,
+          -1.23259516440783e-32,
+          0,
+          -6.61744490042422e-24,
+          1,
+          7.98057441110652e-34,
+          0,
+          1.23259516440783e-32,
+          -7.98057441110652e-34,
+          1,
+          0,
+          0.00117645226418972,
+          -0.00191101070959121,
+          0.193604275584221,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.001909522977712186,
+          0.869784995913506,
+          0.0011791225522301827
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 36,
+      "materials": [
+        "Glass_Gray"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.12",
+      "sourceNodeIndex": 12,
+      "sourceName": "chrome",
+      "displayName": "chrome (merged geometry)",
+      "parentId": "reference.node.1",
+      "category": "aggregate",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          0.0331940427422523,
+          3.33786012163273e-8,
+          0.00672882050275803
+        ],
+        "quaternion": [
+          3.99028720555326e-34,
+          6.16297582203915e-33,
+          3.30872245021211e-24,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          6.61744490042422e-24,
+          -1.23259516440783e-32,
+          0,
+          -6.61744490042422e-24,
+          1,
+          7.98057441110652e-34,
+          0,
+          1.23259516440783e-32,
+          -7.98057441110652e-34,
+          1,
+          0,
+          0.0331940427422523,
+          3.33786012163273e-8,
+          0.00672882050275803,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          0.0000015211104802403973,
+          0.682909540832043,
+          0.033196713030292764
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 37,
+      "materials": [
+        "metal_chrome"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.13",
+      "sourceNodeIndex": 13,
+      "sourceName": "carpet",
+      "displayName": "carpet (merged geometry)",
+      "parentId": "reference.node.1",
+      "category": "aggregate",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          -0.280550837516785,
+          -0.00400012964382768,
+          -0.234556645154953
+        ],
+        "quaternion": [
+          3.99028720555326e-34,
+          6.16297582203915e-33,
+          3.30872245021211e-24,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          6.61744490042422e-24,
+          -1.23259516440783e-32,
+          0,
+          -6.61744490042422e-24,
+          1,
+          7.98057441110652e-34,
+          0,
+          1.23259516440783e-32,
+          -7.98057441110652e-34,
+          1,
+          0,
+          -0.280550837516785,
+          -0.00400012964382768,
+          -0.234556645154953,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.003998641911948656,
+          0.441624075174332,
+          -0.28054816722874454
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 38,
+      "materials": [
+        "Carpet"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.14",
+      "sourceNodeIndex": 14,
+      "sourceName": "carbon_fibre_trim",
+      "displayName": "carbon_fibre_trim (merged geometry)",
+      "parentId": "reference.node.1",
+      "category": "aggregate",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          -0.177426159381866,
+          -0.00208862288855016,
+          -0.0401874929666519
+        ],
+        "quaternion": [
+          3.99028720555326e-34,
+          6.16297582203915e-33,
+          3.30872245021211e-24,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          6.61744490042422e-24,
+          -1.23259516440783e-32,
+          0,
+          -6.61744490042422e-24,
+          1,
+          7.98057441110652e-34,
+          0,
+          1.23259516440783e-32,
+          -7.98057441110652e-34,
+          1,
+          0,
+          -0.177426159381866,
+          -0.00208862288855016,
+          -0.0401874929666519,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.002087135156671136,
+          0.6359932273626331,
+          -0.17742348909382555
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 39,
+      "materials": [
+        "Carbon_Fiber"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.15",
+      "sourceNodeIndex": 15,
+      "sourceName": "carbon fibre",
+      "displayName": "carbon fibre (merged geometry)",
+      "parentId": "reference.node.1",
+      "category": "aggregate",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          -0.437872409820557,
+          -0.345978200435638,
+          0.117906793951988
+        ],
+        "quaternion": [
+          3.99028720555326e-34,
+          6.16297582203915e-33,
+          3.30872245021211e-24,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          6.61744490042422e-24,
+          -1.23259516440783e-32,
+          0,
+          -6.61744490042422e-24,
+          1,
+          7.98057441110652e-34,
+          0,
+          1.23259516440783e-32,
+          -7.98057441110652e-34,
+          1,
+          0,
+          -0.437872409820557,
+          -0.345978200435638,
+          0.117906793951988,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.34597671270375896,
+          0.794087514281273,
+          -0.4378697395325165
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 40,
+      "materials": [
+        "Carbon_Fiber"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.16",
+      "sourceNodeIndex": 16,
+      "sourceName": "brakes",
+      "displayName": "brakes (merged geometry)",
+      "parentId": "reference.node.1",
+      "category": "aggregate",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          1.98945915699005,
+          -0.00397811876609921,
+          0.199853658676147
+        ],
+        "quaternion": [
+          3.99028720555326e-34,
+          6.16297582203915e-33,
+          3.30872245021211e-24,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          6.61744490042422e-24,
+          -1.23259516440783e-32,
+          0,
+          -6.61744490042422e-24,
+          1,
+          7.98057441110652e-34,
+          0,
+          1.23259516440783e-32,
+          -7.98057441110652e-34,
+          1,
+          0,
+          1.98945915699005,
+          -0.00397811876609921,
+          0.199853658676147,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.003976631034220186,
+          0.876034379005432,
+          1.9894618272780904
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 3,
+      "materials": [
+        "Taillight_Glass"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.17",
+      "sourceNodeIndex": 17,
+      "sourceName": "interior_dark",
+      "displayName": "interior_dark (merged geometry)",
+      "parentId": "reference.node.1",
+      "category": "aggregate",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          0.00335746724158525,
+          3.75507802630182e-8,
+          0.0105789182707667
+        ],
+        "quaternion": [
+          3.99028720555326e-34,
+          6.16297582203915e-33,
+          3.30872245021211e-24,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          6.61744490042422e-24,
+          -1.23259516440783e-32,
+          0,
+          -6.61744490042422e-24,
+          1,
+          7.98057441110652e-34,
+          0,
+          1.23259516440783e-32,
+          -7.98057441110652e-34,
+          1,
+          0,
+          0.00335746724158525,
+          3.75507802630182e-8,
+          0.0105789182707667,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          0.0000015252826592870882,
+          0.6867596386000517,
+          0.0033601375296257127
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 42,
+      "materials": [
+        "Interior_light"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.18",
+      "sourceNodeIndex": 18,
+      "sourceName": "body",
+      "displayName": "body (merged geometry)",
+      "parentId": "reference.node.1",
+      "category": "aggregate",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          -0.00539161590859294,
+          5.9604643443123e-10,
+          0.0219915769994259
+        ],
+        "quaternion": [
+          3.99028720555326e-34,
+          6.16297582203915e-33,
+          3.30872245021211e-24,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          6.61744490042422e-24,
+          -1.23259516440783e-32,
+          0,
+          -6.61744490042422e-24,
+          1,
+          7.98057441110652e-34,
+          0,
+          1.23259516440783e-32,
+          -7.98057441110652e-34,
+          1,
+          0,
+          -0.00539161590859294,
+          5.9604643443123e-10,
+          0.0219915769994259,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          0.0000014883279254585012,
+          0.6981722973287109,
+          -0.0053889456205524775
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 43,
+      "materials": [
+        "Body_Color"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.19",
+      "sourceNodeIndex": 19,
+      "sourceName": "blue",
+      "displayName": "blue (merged geometry)",
+      "parentId": "reference.node.1",
+      "category": "aggregate",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          -0.349618911743164,
+          -0.435095727443695,
+          0.0676281750202179
+        ],
+        "quaternion": [
+          3.99028720555326e-34,
+          6.16297582203915e-33,
+          3.30872245021211e-24,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          6.61744490042422e-24,
+          -1.23259516440783e-32,
+          0,
+          -6.61744490042422e-24,
+          1,
+          7.98057441110652e-34,
+          0,
+          1.23259516440783e-32,
+          -7.98057441110652e-34,
+          1,
+          0,
+          -0.349618911743164,
+          -0.435095727443695,
+          0.0676281750202179,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.435094239711816,
+          0.7438088953495029,
+          -0.34961624145512354
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 44,
+      "materials": [
+        "_0098_DodgerBlue"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.20",
+      "sourceNodeIndex": 20,
+      "sourceName": "wipers",
+      "displayName": "wipers (merged geometry)",
+      "parentId": "reference.node.1",
+      "category": "aggregate",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          -1.08888471126556,
+          0.0064808651804924,
+          0.109591364860535
+        ],
+        "quaternion": [
+          3.99028720555326e-34,
+          6.16297582203915e-33,
+          3.30872245021211e-24,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          6.61744490042422e-24,
+          -1.23259516440783e-32,
+          0,
+          -6.61744490042422e-24,
+          1,
+          7.98057441110652e-34,
+          0,
+          1.23259516440783e-32,
+          -7.98057441110652e-34,
+          1,
+          0,
+          -1.08888471126556,
+          0.0064808651804924,
+          0.109591364860535,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          0.006482352912371424,
+          0.78577208518982,
+          -1.0888820409775195
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 31,
+      "materials": [
+        "Tires"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.21",
+      "sourceNodeIndex": 21,
+      "sourceName": "yellow_trim",
+      "displayName": "yellow_trim (merged geometry)",
+      "parentId": "reference.node.1",
+      "category": "aggregate",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          -1.39713191986084,
+          -0.00285110459662974,
+          0.0468275435268879
+        ],
+        "quaternion": [
+          3.99028720555326e-34,
+          6.16297582203915e-33,
+          3.30872245021211e-24,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          6.61744490042422e-24,
+          -1.23259516440783e-32,
+          0,
+          -6.61744490042422e-24,
+          1,
+          7.98057441110652e-34,
+          0,
+          1.23259516440783e-32,
+          -7.98057441110652e-34,
+          1,
+          0,
+          -1.39713191986084,
+          -0.00285110459662974,
+          0.0468275435268879,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.002849616864750716,
+          0.7230082638561729,
+          -1.3971292495727996
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 45,
+      "materials": [
+        "Ferrari_Yellow"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.22",
+      "sourceNodeIndex": 22,
+      "sourceName": "wheel_rr",
+      "displayName": "Rear right wheel assembly",
+      "parentId": "reference.node.0",
+      "category": "wheels",
+      "kind": "assembly",
+      "originalTransform": {
+        "position": [
+          0.824389457702637,
+          0.35802298784256,
+          1.49632227420807
+        ],
+        "quaternion": [
+          -0.70710676908493,
+          0,
+          0,
+          0.70710676908493
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          3.422854299994782e-8,
+          -0.999999965771457,
+          0,
+          0,
+          0.999999965771457,
+          3.422854299994782e-8,
+          0,
+          0.824389457702637,
+          0.35802298784256,
+          1.49632227420807,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          0.824389457702637,
+          0.35802298784256,
+          1.49632227420807
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": null,
+      "materials": [],
+      "selectable": true,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": true,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.23",
+      "sourceNodeIndex": 23,
+      "sourceName": "wheel",
+      "displayName": "Rear right wheel / wheel",
+      "parentId": "reference.node.22",
+      "category": "wheels",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          -0.0000509643541590776,
+          0.0000704956037225202,
+          -0.000523376453202218
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          -0.0000509643541590776,
+          0.0000704956037225202,
+          -0.000523376453202218,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          0.824338493348478,
+          0.3574996114096851,
+          1.496251778588846
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 7,
+      "materials": [
+        "metal_gray"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.24",
+      "sourceNodeIndex": 24,
+      "sourceName": "tire",
+      "displayName": "Rear right wheel / tire",
+      "parentId": "reference.node.22",
+      "category": "wheels",
+      "kind": "geometry",
+      "originalTransform": {
+        "position": [
+          -0.00540466280654073,
+          3.0517577442879e-7,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          -0.00540466280654073,
+          3.0517577442879e-7,
+          0,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          0.8189847948960963,
+          0.3580229878425704,
+          1.496321969032306
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 32,
+      "materials": [
+        "Tires"
+      ],
+      "selectable": true,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": true,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.25",
+      "sourceNodeIndex": 25,
+      "sourceName": "rim_rr",
+      "displayName": "Rear right wheel / rim geometry",
+      "parentId": "reference.node.22",
+      "category": "wheels",
+      "kind": "geometry",
+      "originalTransform": {
+        "position": [
+          0.125254824757576,
+          -0.0000123596191770048,
+          -0.000531616213265806
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0.125254824757576,
+          -0.0000123596191770048,
+          -0.000531616213265806,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          0.949644282460213,
+          0.35749137164706757,
+          1.4963346338086274
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 8,
+      "materials": [
+        "metal_gray"
+      ],
+      "selectable": true,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": true,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.26",
+      "sourceNodeIndex": 26,
+      "sourceName": "centre",
+      "displayName": "Rear right wheel / centre",
+      "parentId": "reference.node.22",
+      "category": "wheels",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          0.112684555351734,
+          -0.0000161743155331351,
+          -0.000523376453202218
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0.112684555351734,
+          -0.0000161743155331351,
+          -0.000523376453202218,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          0.9370740130543711,
+          0.35749961140671854,
+          1.496338448505135
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 46,
+      "materials": [
+        "Ferrari_Yellow"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.27",
+      "sourceNodeIndex": 27,
+      "sourceName": "brake",
+      "displayName": "Rear right wheel / combined brake geometry",
+      "parentId": "reference.node.22",
+      "category": "wheels",
+      "kind": "geometry",
+      "originalTransform": {
+        "position": [
+          0.00889503490179777,
+          0.00115844723768532,
+          -0.000592193566262722
+        ],
+        "quaternion": [
+          -8.74227765734759e-8,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.9999999999999847,
+          -1.748455531469518e-7,
+          0,
+          0,
+          1.748455531469518e-7,
+          0.9999999999999847,
+          0,
+          0.00889503490179777,
+          0.00115844723768532,
+          -0.000592193566262722,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          0.8332844926044348,
+          0.35743079433621916,
+          1.4951638269897667
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 9,
+      "materials": [
+        "metal_gray"
+      ],
+      "selectable": true,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": true,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.28",
+      "sourceNodeIndex": 28,
+      "sourceName": "nuts",
+      "displayName": "Rear right wheel / nuts",
+      "parentId": "reference.node.22",
+      "category": "wheels",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          0.102889932692051,
+          0.00000610351526120212,
+          0.00643936125561595
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0.102889932692051,
+          0.00000610351526120212,
+          0.00643936125561595,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          0.9272793903946881,
+          0.3644623488779749,
+          1.4963161709134276
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 25,
+      "materials": [
+        "Interior_dark"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.29",
+      "sourceNodeIndex": 29,
+      "sourceName": "wheel_rl",
+      "displayName": "Rear left wheel assembly",
+      "parentId": "reference.node.0",
+      "category": "wheels",
+      "kind": "assembly",
+      "originalTransform": {
+        "position": [
+          -0.821343064308167,
+          0.358023583889008,
+          1.49499452114105
+        ],
+        "quaternion": [
+          -0.70710676908493,
+          0,
+          0,
+          0.70710676908493
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          3.422854299994782e-8,
+          -0.999999965771457,
+          0,
+          0,
+          0.999999965771457,
+          3.422854299994782e-8,
+          0,
+          -0.821343064308167,
+          0.358023583889008,
+          1.49499452114105,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.821343064308167,
+          0.358023583889008,
+          1.49499452114105
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": null,
+      "materials": [],
+      "selectable": true,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": true,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.30",
+      "sourceNodeIndex": 30,
+      "sourceName": "tire",
+      "displayName": "Rear left wheel / tire",
+      "parentId": "reference.node.29",
+      "category": "wheels",
+      "kind": "geometry",
+      "originalTransform": {
+        "position": [
+          0.0055303955450654,
+          -1.52587887214395e-7,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0.0055303955450654,
+          -1.52587887214395e-7,
+          0,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.8158126687631015,
+          0.3580235838890028,
+          1.494994673728932
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 33,
+      "materials": [
+        "Tires"
+      ],
+      "selectable": true,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": true,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.31",
+      "sourceNodeIndex": 31,
+      "sourceName": "brake",
+      "displayName": "Rear left wheel / combined brake geometry",
+      "parentId": "reference.node.29",
+      "category": "wheels",
+      "kind": "geometry",
+      "originalTransform": {
+        "position": [
+          -0.017500152811408,
+          -0.00118026731070131,
+          -0.000590820272918791
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          -0.017500152811408,
+          -0.00118026731070131,
+          -0.000590820272918791,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.838843217119575,
+          0.3574327635959133,
+          1.4961747883911296
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 10,
+      "materials": [
+        "metal_gray"
+      ],
+      "selectable": true,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": true,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.32",
+      "sourceNodeIndex": 32,
+      "sourceName": "centre",
+      "displayName": "Rear left wheel / centre",
+      "parentId": "reference.node.29",
+      "category": "wheels",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          -0.112713925540447,
+          -0.0000942993137869053,
+          -0.000523223890922964
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          -0.112713925540447,
+          -0.0000942993137869053,
+          -0.000523223890922964,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.934056989848614,
+          0.3575003600127665,
+          1.4950888204337
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 47,
+      "materials": [
+        "Ferrari_Yellow"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.33",
+      "sourceNodeIndex": 33,
+      "sourceName": "wheel",
+      "displayName": "Rear left wheel / wheel",
+      "parentId": "reference.node.29",
+      "category": "wheels",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          0.0000596618629060686,
+          -0.00000778198227635585,
+          -0.000523223890922964
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0.0000596618629060686,
+          -0.00000778198227635585,
+          -0.000523223890922964,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.8212834024452609,
+          0.3575003600157279,
+          1.495002303105151
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 11,
+      "materials": [
+        "metal_gray"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.34",
+      "sourceNodeIndex": 34,
+      "sourceName": "rim_rl",
+      "displayName": "Rear left wheel / rim geometry",
+      "parentId": "reference.node.29",
+      "category": "wheels",
+      "kind": "geometry",
+      "originalTransform": {
+        "position": [
+          -0.125263676047325,
+          -0.000154266352183186,
+          -0.000531463592778891
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          -0.125263676047325,
+          -0.000154266352183186,
+          -0.000531463592778891,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.946606740355492,
+          0.35749212030914,
+          1.4951487874697618
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 12,
+      "materials": [
+        "metal_gray"
+      ],
+      "selectable": true,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": true,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.35",
+      "sourceNodeIndex": 35,
+      "sourceName": "nuts",
+      "displayName": "Rear left wheel / nuts",
+      "parentId": "reference.node.29",
+      "category": "wheels",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          -0.102909542620182,
+          -0.0000703430196153931,
+          0.00643943762406707
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          -0.102909542620182,
+          -0.0000703430196153931,
+          0.00643943762406707,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.924252606928349,
+          0.36446302129025476,
+          1.4950648643786701
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 26,
+      "materials": [
+        "Interior_dark"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.36",
+      "sourceNodeIndex": 36,
+      "sourceName": "wheel_fl",
+      "displayName": "Front left wheel assembly",
+      "parentId": "reference.node.0",
+      "category": "wheels",
+      "kind": "assembly",
+      "originalTransform": {
+        "position": [
+          -0.842561423778534,
+          0.358022838830948,
+          -1.15531802177429
+        ],
+        "quaternion": [
+          -0.70710676908493,
+          0,
+          0,
+          0.70710676908493
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          3.422854299994782e-8,
+          -0.999999965771457,
+          0,
+          0,
+          0.999999965771457,
+          3.422854299994782e-8,
+          0,
+          -0.842561423778534,
+          0.358022838830948,
+          -1.15531802177429,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.842561423778534,
+          0.358022838830948,
+          -1.15531802177429
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": null,
+      "materials": [],
+      "selectable": true,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": true,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.37",
+      "sourceNodeIndex": 37,
+      "sourceName": "rim_fl",
+      "displayName": "Front left wheel / rim geometry",
+      "parentId": "reference.node.36",
+      "category": "wheels",
+      "kind": "geometry",
+      "originalTransform": {
+        "position": [
+          -0.113866649568081,
+          0.000145492551382631,
+          -0.000531616213265806
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          -0.113866649568081,
+          0.000145492551382631,
+          -0.000531616213265806,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.9564280733466151,
+          0.35749122264085864,
+          -1.1554635143388892
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 13,
+      "materials": [
+        "metal_gray"
+      ],
+      "selectable": true,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": true,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.38",
+      "sourceNodeIndex": 38,
+      "sourceName": "brake",
+      "displayName": "Front left wheel / combined brake geometry",
+      "parentId": "reference.node.36",
+      "category": "wheels",
+      "kind": "geometry",
+      "originalTransform": {
+        "position": [
+          -0.00204421998932958,
+          -0.00149856565985829,
+          -0.000581054657232016
+        ],
+        "quaternion": [
+          -5.64259948987456e-7,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.9999999999993632,
+          -0.000001128519897974912,
+          0,
+          0,
+          0.000001128519897974912,
+          0.9999999999993632,
+          0,
+          -0.00204421998932958,
+          -0.00149856565985829,
+          -0.000581054657232016,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.8446056437678636,
+          0.3574417841423109,
+          -1.153819456185614
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 14,
+      "materials": [
+        "metal_gray"
+      ],
+      "selectable": true,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": true,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.39",
+      "sourceNodeIndex": 39,
+      "sourceName": "centre",
+      "displayName": "Front left wheel / centre",
+      "parentId": "reference.node.36",
+      "category": "wheels",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          -0.102468490600586,
+          0.000140075673698448,
+          -0.000523376453202218
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          -0.102468490600586,
+          0.000140075673698448,
+          -0.000523376453202218,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.9450299143791201,
+          0.35749946240045477,
+          -1.1554580974611082
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 48,
+      "materials": [
+        "Ferrari_Yellow"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.40",
+      "sourceNodeIndex": 40,
+      "sourceName": "nuts",
+      "displayName": "Front left wheel / nuts",
+      "parentId": "reference.node.36",
+      "category": "wheels",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          -0.0935612469911575,
+          0.000154495239257813,
+          0.00643936125561595
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          -0.0935612469911575,
+          0.000154495239257813,
+          0.00643936125561595,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.9361226707696916,
+          0.3644621998714421,
+          -1.1554725167878497
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 27,
+      "materials": [
+        "Interior_dark"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.41",
+      "sourceNodeIndex": 41,
+      "sourceName": "wheel",
+      "displayName": "Front left wheel / wheel",
+      "parentId": "reference.node.36",
+      "category": "wheels",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          0.0000449371327704284,
+          0.000226593008846976,
+          -0.000523376453202218
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0.0000449371327704284,
+          0.000226593008846976,
+          -0.000523376453202218,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.8425164866457636,
+          0.3574994624034161,
+          -1.1555446147932955
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 15,
+      "materials": [
+        "metal_gray"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.42",
+      "sourceNodeIndex": 42,
+      "sourceName": "tire",
+      "displayName": "Front left wheel / tire",
+      "parentId": "reference.node.36",
+      "category": "wheels",
+      "kind": "geometry",
+      "originalTransform": {
+        "position": [
+          0.00502281170338392,
+          0,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0.00502281170338392,
+          0,
+          0,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.8375386120751501,
+          0.358022838830948,
+          -1.15531802177429
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 34,
+      "materials": [
+        "Tires"
+      ],
+      "selectable": true,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": true,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.43",
+      "sourceNodeIndex": 43,
+      "sourceName": "wheel_fr",
+      "displayName": "Front right wheel assembly",
+      "parentId": "reference.node.0",
+      "category": "wheels",
+      "kind": "assembly",
+      "originalTransform": {
+        "position": [
+          0.828689932823181,
+          0.360654979944229,
+          -1.15445899963379
+        ],
+        "quaternion": [
+          -0.70710676908493,
+          0,
+          0,
+          0.70710676908493
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          3.422854299994782e-8,
+          -0.999999965771457,
+          0,
+          0,
+          0.999999965771457,
+          3.422854299994782e-8,
+          0,
+          0.828689932823181,
+          0.360654979944229,
+          -1.15445899963379,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          0.828689932823181,
+          0.360654979944229,
+          -1.15445899963379
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": null,
+      "materials": [],
+      "selectable": true,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": true,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.44",
+      "sourceNodeIndex": 44,
+      "sourceName": "brake",
+      "displayName": "Front right wheel / combined brake geometry",
+      "parentId": "reference.node.43",
+      "category": "wheels",
+      "kind": "geometry",
+      "originalTransform": {
+        "position": [
+          0.00133216858375818,
+          0.000145874015288427,
+          -0.000605468754656613
+        ],
+        "quaternion": [
+          -8.68879510562692e-8,
+          1.31197161899114e-14,
+          -1.50995802528087e-7,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          0.9999999999999544,
+          -3.019916050561763e-7,
+          -5.802977727991917e-22,
+          0,
+          3.0199160505617175e-7,
+          0.9999999999999393,
+          -1.7377590211254238e-7,
+          0,
+          5.2478864179347827e-14,
+          1.7377590211253444e-7,
+          0.9999999999999849,
+          0,
+          0.00133216858375818,
+          0.000145874015288427,
+          -0.000605468754656613,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          0.8300221014069392,
+          0.3600495112152898,
+          -1.1546048736648096
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 16,
+      "materials": [
+        "metal_gray"
+      ],
+      "selectable": true,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": true,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.45",
+      "sourceNodeIndex": 45,
+      "sourceName": "centre",
+      "displayName": "Front right wheel / centre",
+      "parentId": "reference.node.43",
+      "category": "wheels",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          0.102459713816643,
+          -0.0000944519051699899,
+          -0.000523376453202218
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0.102459713816643,
+          -0.0000944519051699899,
+          -0.000523376453202218,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          0.931149646639824,
+          0.3601316035057083,
+          -1.1543645477497673
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 49,
+      "materials": [
+        "Ferrari_Yellow"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.46",
+      "sourceNodeIndex": 46,
+      "sourceName": "wheel",
+      "displayName": "Front right wheel / wheel",
+      "parentId": "reference.node.43",
+      "category": "wheels",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          -0.0000351715098076966,
+          -0.00000785827614890877,
+          -0.000523223890922964
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          -0.0000351715098076966,
+          -0.00000785827614890877,
+          -0.000523223890922964,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          0.8286547613133733,
+          0.3601317560709463,
+          -1.1544511413758192
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 17,
+      "materials": [
+        "metal_gray"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.47",
+      "sourceNodeIndex": 47,
+      "sourceName": "rim_fr",
+      "displayName": "Front right wheel / rim geometry",
+      "parentId": "reference.node.43",
+      "category": "wheels",
+      "kind": "geometry",
+      "originalTransform": {
+        "position": [
+          0.113856963813305,
+          -0.00015441894356627,
+          -0.000531616213265806
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0.113856963813305,
+          -0.00015441894356627,
+          -0.000531616213265806,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          0.942546896636486,
+          0.3601233637438741,
+          -1.1543045807137056
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 18,
+      "materials": [
+        "metal_gray"
+      ],
+      "selectable": true,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": true,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.48",
+      "sourceNodeIndex": 48,
+      "sourceName": "tire",
+      "displayName": "Front right wheel / tire",
+      "parentId": "reference.node.43",
+      "category": "wheels",
+      "kind": "geometry",
+      "originalTransform": {
+        "position": [
+          -0.00501312222331762,
+          7.62939436071974e-8,
+          0
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          -0.00501312222331762,
+          7.62939436071974e-8,
+          0,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          0.8236768105998634,
+          0.3606549799442316,
+          -1.154459075927731
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 35,
+      "materials": [
+        "Tires"
+      ],
+      "selectable": true,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": true,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.49",
+      "sourceNodeIndex": 49,
+      "sourceName": "nuts",
+      "displayName": "Front right wheel / nuts",
+      "parentId": "reference.node.43",
+      "category": "wheels",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          0.0935492664575577,
+          -0.0000852203374961391,
+          0.00643947580829263
+        ],
+        "quaternion": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0.0935492664575577,
+          -0.0000852203374961391,
+          0.00643947580829263,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          0.9222391992807387,
+          0.3670944555291908,
+          -1.154373779078797
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 28,
+      "materials": [
+        "Interior_dark"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.50",
+      "sourceNodeIndex": 50,
+      "sourceName": "steering_wheel",
+      "displayName": "Steering wheel assembly",
+      "parentId": "reference.node.0",
+      "category": "interior",
+      "kind": "assembly",
+      "originalTransform": {
+        "position": [
+          -0.345964461565018,
+          0.798868536949158,
+          -0.34565657377243
+        ],
+        "quaternion": [
+          -0.819152057170868,
+          0,
+          0,
+          0.5735764503479
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          -0.3420201855345302,
+          -0.939692658494493,
+          0,
+          0,
+          0.939692658494493,
+          -0.3420201855345302,
+          0,
+          -0.345964461565018,
+          0.798868536949158,
+          -0.34565657377243,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.345964461565018,
+          0.798868536949158,
+          -0.34565657377243
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": null,
+      "materials": [],
+      "selectable": true,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": true,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.51",
+      "sourceNodeIndex": 51,
+      "sourceName": "steering_carbon",
+      "displayName": "steering_carbon (merged geometry)",
+      "parentId": "reference.node.50",
+      "category": "interior",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          0.000270538323093206,
+          0.0155103486031294,
+          0.00620719883590937
+        ],
+        "quaternion": [
+          0.173648148775101,
+          3.17855004539069e-8,
+          -8.63980975651657e-9,
+          0.984807729721069
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          0.9999999999999978,
+          -5.9781162396519164e-9,
+          -6.560578702009643e-8,
+          0,
+          2.805608948649618e-8,
+          0.9396926408539606,
+          0.3420200783309468,
+          0,
+          5.96046391401438e-8,
+          -0.3420200783309479,
+          0.9396926408539588,
+          0,
+          0.000270538323093206,
+          0.0155103486031294,
+          0.00620719883590937,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.34569392324192477,
+          0.7993965438181301,
+          -0.36235452178298844
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 41,
+      "materials": [
+        "Carbon_Fiber"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.52",
+      "sourceNodeIndex": 52,
+      "sourceName": "steering_centre",
+      "displayName": "steering_centre (merged geometry)",
+      "parentId": "reference.node.50",
+      "category": "interior",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          0,
+          -3.81469718035987e-8,
+          -1.42108543975646e-16
+        ],
+        "quaternion": [
+          -2.98023294931227e-8,
+          3.18273940536073e-8,
+          -3.08888858935319e-10,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          0.999999999999998,
+          -6.17779614931607e-10,
+          -6.365478808880338e-8,
+          0,
+          6.177758208096691e-10,
+          0.9999999999999982,
+          -5.960465900590766e-8,
+          0,
+          6.365478812562581e-8,
+          5.960465896658315e-8,
+          0.9999999999999962,
+          0,
+          0,
+          -3.81469718035987e-8,
+          -1.42108543975646e-16,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.345964461565018,
+          0.7988685499961923,
+          -0.3456565379260006
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 50,
+      "materials": [
+        "Ferrari_Yellow"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.53",
+      "sourceNodeIndex": 53,
+      "sourceName": "steering_column",
+      "displayName": "steering_column (merged geometry)",
+      "parentId": "reference.node.50",
+      "category": "interior",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          -0.0000608825685048942,
+          0.0682070553302765,
+          -0.0146680446341634
+        ],
+        "quaternion": [
+          0.173648148775101,
+          3.17855004539069e-8,
+          -8.63980975651657e-9,
+          0.984807729721069
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          0.9999999999999978,
+          -5.9781162396519164e-9,
+          -6.560578702009643e-8,
+          0,
+          2.805608948649618e-8,
+          0.9396926408539606,
+          0.3420200783309468,
+          0,
+          5.96046391401438e-8,
+          -0.3420200783309479,
+          0.9396926408539588,
+          0,
+          -0.0000608825685048942,
+          0.0682070553302765,
+          -0.0146680446341634,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.34602534413352287,
+          0.76175689337314,
+          -0.40473347557661316
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 29,
+      "materials": [
+        "Interior_dark"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.54",
+      "sourceNodeIndex": 54,
+      "sourceName": "steering_leather",
+      "displayName": "steering_leather (merged geometry)",
+      "parentId": "reference.node.50",
+      "category": "interior",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          0.0000556182858417742,
+          0.0153668969869614,
+          0.00707572931423783
+        ],
+        "quaternion": [
+          0.173648148775101,
+          3.17855004539069e-8,
+          -8.63980975651657e-9,
+          0.984807729721069
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          0.9999999999999978,
+          -5.9781162396519164e-9,
+          -6.560578702009643e-8,
+          0,
+          2.805608948649618e-8,
+          0.9396926408539606,
+          0.3420200783309468,
+          0,
+          5.96046391401438e-8,
+          -0.3420200783309479,
+          0.9396926408539588,
+          0,
+          0.0000556182858417742,
+          0.0153668969869614,
+          0.00707572931423783,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.3459088432791762,
+          0.8002617588806711,
+          -0.36251677630776646
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 23,
+      "materials": [
+        "Leather"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.55",
+      "sourceNodeIndex": 55,
+      "sourceName": "steering_metal",
+      "displayName": "steering_metal (merged geometry)",
+      "parentId": "reference.node.50",
+      "category": "interior",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          0.0862398147583008,
+          0.0210683811455965,
+          -0.0661743134260178
+        ],
+        "quaternion": [
+          0.173648148775101,
+          3.17855004539069e-8,
+          -8.63980975651657e-9,
+          0.984807729721069
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          0.9999999999999978,
+          -5.9781162396519164e-9,
+          -6.560578702009643e-8,
+          0,
+          2.805608948649618e-8,
+          0.9396926408539606,
+          0.3420200783309468,
+          0,
+          5.96046391401438e-8,
+          -0.3420200783309479,
+          0.9396926408539588,
+          0,
+          0.0862398147583008,
+          0.0210683811455965,
+          -0.0661743134260178,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.2597246468067172,
+          0.7294792088134865,
+          -0.34282142590572406
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 19,
+      "materials": [
+        "metal_gray"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.56",
+      "sourceNodeIndex": 56,
+      "sourceName": "steering_red_lights",
+      "displayName": "steering_red_lights (merged geometry)",
+      "parentId": "reference.node.50",
+      "category": "interior",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          0.00560840591788292,
+          0.020038204267621,
+          -0.0715755447745323
+        ],
+        "quaternion": [
+          0.173648148775101,
+          3.17855004539069e-8,
+          -8.63980975651657e-9,
+          0.984807729721069
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          0.9999999999999978,
+          -5.9781162396519164e-9,
+          -6.560578702009643e-8,
+          0,
+          2.805608948649618e-8,
+          0.9396926408539606,
+          0.3420200783309468,
+          0,
+          5.96046391401438e-8,
+          -0.3420200783309479,
+          0.9396926408539588,
+          0,
+          0.00560840591788292,
+          0.020038204267621,
+          -0.0715755447745323,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.34035605564713506,
+          0.7247560526553956,
+          -0.34000604610860585
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 4,
+      "materials": [
+        "Taillight_Glass"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    },
+    {
+      "id": "reference.node.57",
+      "sourceNodeIndex": 57,
+      "sourceName": "steering_trim",
+      "displayName": "steering_trim (merged geometry)",
+      "parentId": "reference.node.50",
+      "category": "interior",
+      "kind": "material-aggregate",
+      "originalTransform": {
+        "position": [
+          -0.000483016949146986,
+          0.0158823002129793,
+          -0.0752718299627304
+        ],
+        "quaternion": [
+          0.173648148775101,
+          3.17855004539069e-8,
+          -8.63980975651657e-9,
+          0.984807729721069
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": [
+          0.9999999999999978,
+          -5.9781162396519164e-9,
+          -6.560578702009643e-8,
+          0,
+          2.805608948649618e-8,
+          0.9396926408539606,
+          0.3420200783309468,
+          0,
+          5.96046391401438e-8,
+          -0.3420200783309479,
+          0.9396926408539588,
+          0,
+          -0.000483016949146986,
+          0.0158823002129793,
+          -0.0752718299627304,
+          1
+        ]
+      },
+      "pivot": {
+        "local": [
+          0,
+          0,
+          0
+        ],
+        "sourceWorld": [
+          -0.34644747851416496,
+          0.7227040836761762,
+          -0.3348365694331955
+        ],
+        "status": "source-origin-unverified"
+      },
+      "meshIndex": 1,
+      "materials": [
+        "Leather_red"
+      ],
+      "selectable": false,
+      "visible": true,
+      "explosionVector": null,
+      "capabilities": {
+        "inspect": false,
+        "independentlyAddressable": true,
+        "disassemble": false,
+        "articulate": false
+      }
+    }
+  ],
+  "unavailable": [
+    "independent body panels",
+    "independent doors and hinges",
+    "engine block and cylinder heads",
+    "intake and exhaust assemblies",
+    "transmission and differential",
+    "suspension and control arms",
+    "separate brake discs and calipers",
+    "structural chassis",
+    "separate seats and dashboard",
+    "validated mechanical pivots"
+  ]
+}

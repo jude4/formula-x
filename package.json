@@ -1,0 +1,39 @@
+{
+  "name": "formula-x",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "npm run assets:check && tsc -b && vite build",
+    "typecheck": "tsc -b",
+    "preview": "vite preview --host 0.0.0.0",
+    "assets:audit": "node scripts/audit-vehicle.mjs",
+    "assets:check": "node scripts/audit-vehicle.mjs --check"
+  },
+  "dependencies": {
+    "@react-three/drei": "10.7.6",
+    "@react-three/fiber": "9.4.0",
+    "framer-motion": "12.23.24",
+    "lucide-react": "0.548.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "three": "0.180.0",
+    "zustand": "5.0.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.1.16",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "@types/three": "0.180.0",
+    "@vitejs/plugin-react": "5.0.4",
+    "tailwindcss": "4.1.16",
+    "typescript": "5.9.3",
+    "vite": "7.1.12",
+    "@playwright/test": "1.56.1"
+  },
+  "overrides": {
+    "motion-dom": "12.23.23",
+    "motion-utils": "12.23.6"
+  }
+}

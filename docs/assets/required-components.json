@@ -1,0 +1,323 @@
+{
+  "scope": "User specification section 4. Reference geometry is not an original cleared vehicle; lack of a mapping is not a claim the shape is visually absent.",
+  "groups": {
+    "Exterior": [
+      {
+        "requirement": "Front bumper",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Rear bumper",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Front hood",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Rear engine cover",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Front left fender",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Front right fender",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Rear left fender",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Rear right fender",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Left door",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Right door",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Front windshield",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Rear windshield",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Side windows",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Side mirrors",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Front splitter",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Rear diffuser",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Rear spoiler",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Headlights",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Taillights",
+        "status": "not-independently-validated",
+        "componentIds": []
+      }
+    ],
+    "Wheels": [
+      {
+        "requirement": "Front left wheel",
+        "status": "available-reference-geometry",
+        "componentIds": [
+          "reference.node.36"
+        ]
+      },
+      {
+        "requirement": "Front right wheel",
+        "status": "available-reference-geometry",
+        "componentIds": [
+          "reference.node.43"
+        ]
+      },
+      {
+        "requirement": "Rear left wheel",
+        "status": "available-reference-geometry",
+        "componentIds": [
+          "reference.node.29"
+        ]
+      },
+      {
+        "requirement": "Rear right wheel",
+        "status": "available-reference-geometry",
+        "componentIds": [
+          "reference.node.22"
+        ]
+      },
+      {
+        "requirement": "Individual rims",
+        "status": "available-reference-geometry",
+        "componentIds": [
+          "reference.node.25",
+          "reference.node.34",
+          "reference.node.37",
+          "reference.node.47"
+        ]
+      },
+      {
+        "requirement": "Tires",
+        "status": "available-reference-geometry",
+        "componentIds": [
+          "reference.node.24",
+          "reference.node.30",
+          "reference.node.42",
+          "reference.node.48"
+        ]
+      },
+      {
+        "requirement": "Brake discs",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Brake calipers",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Wheel hubs",
+        "status": "not-independently-validated",
+        "componentIds": []
+      }
+    ],
+    "Mechanical systems": [
+      {
+        "requirement": "Engine assembly",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Engine block",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Cylinder heads",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Intake manifold",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Turbochargers or intake system",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Exhaust manifolds",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Exhaust pipes",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Radiator",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Cooling system",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Transmission",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Differential",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Driveshaft",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Front suspension",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Rear suspension",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Control arms",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Shock absorbers",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Springs",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Chassis",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Battery",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Fuel tank",
+        "status": "not-independently-validated",
+        "componentIds": []
+      }
+    ],
+    "Interior": [
+      {
+        "requirement": "Dashboard",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Steering wheel",
+        "status": "available-reference-geometry",
+        "componentIds": [
+          "reference.node.50"
+        ]
+      },
+      {
+        "requirement": "Driver seat",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Passenger seat",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Centre console",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Gear selector",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Pedals",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Instrument cluster",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Infotainment screen",
+        "status": "not-independently-validated",
+        "componentIds": []
+      },
+      {
+        "requirement": "Door panels",
+        "status": "not-independently-validated",
+        "componentIds": []
+      }
+    ]
+  }
+}
