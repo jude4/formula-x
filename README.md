@@ -1,6 +1,6 @@
 # FORMULA X — Beyond the Machine
 
-Phase 2 in progress: an interactive automotive studio built with React 19, TypeScript, Vite, React Three Fiber, Drei, Three.js, Zustand, Tailwind CSS, Framer Motion, and Lucide.
+Phase 3 reference component explorer: an interactive automotive studio built with React 19, TypeScript, Vite, React Three Fiber, Drei, Three.js, Zustand, Tailwind CSS, Framer Motion, and Lucide.
 
 ## Develop
 
@@ -27,6 +27,7 @@ Browser tests use `/usr/bin/chromium` by default. Set `PLAYWRIGHT_CHROMIUM_EXECU
 - Choose perspective, front, rear, or side camera views.
 - Automatic orbit, camera reset, high/balanced pixel-density rendering.
 - Fullscreen when the browser supports it.
+- Components mode: real model selection, searchable hierarchy, highlighting/edges, camera focus, related components, and clear/close actions.
 - Enter the experience, project notes, keyboard dismissal and focus management.
 - Asset loading progress, error boundary, and unsupported-WebGL fallback.
 
@@ -36,9 +37,9 @@ The initial reveal gently settles into the front-quarter view. Camera distance a
 
 The vehicle is the Ferrari 458 reference asset used by the official Three.js car example, credited to **vicent091036**. It is not an original FORMULA X vehicle. It does not contain the complete individually separated mechanical architecture required for later phases. The project information panel states these limitations; no unimplemented disassembly, customization, cockpit, or driving controls are displayed.
 
-See [asset provenance](docs/ASSETS.md), [Phase 1 validation](docs/PHASE-1.md), and [Phase 2 preparation](docs/PHASE-2.md). Original model licensing confirmation is a remaining release prerequisite, separate from upstream code licensing. This is a development study, not a cleared commercial asset package.
+See [asset provenance](docs/ASSETS.md), [Phase 1 validation](docs/PHASE-1.md), and [Phase 2 preparation](docs/PHASE-2.md), and [Phase 3 explorer](docs/PHASE-3.md). Original model licensing confirmation is a remaining release prerequisite, separate from upstream code licensing. This is a development study, not a cleared commercial asset package.
 
-Phase 2 was authorized. A central 58-node registry, source manifest, validation pipeline and Blender preparation workflow are implemented. Full asset acceptance remains blocked on a licensed original vehicle with the missing independent components. Phase 3 has not started.
+Phase 2 was authorized. A central 58-node registry, source manifest, validation pipeline and Blender preparation workflow are implemented. Full asset acceptance remains blocked on a licensed original vehicle with the missing independent components. Phase 3 was authorized on the reference model and adds a working explorer for the 17 verified inspectable components. Full original-vehicle asset completeness remains unresolved.
 
 ## Architecture
 
@@ -47,6 +48,8 @@ Phase 2 was authorized. A central 58-node registry, source manifest, validation 
 - `src/stores`: shared showroom state.
 - `src/components/ui`: scene error handling.
 - `public/models`, `public/draco`: local rendering assets and upstream notices.
+- `src/features/component-explorer`: hierarchy, metadata, selection feedback, and component camera targets.
+- `src/stores/explorer-store.ts`: shared model/hierarchy selection and focus requests.
 - `src/models/vehicle`: frozen manifest, validated registry, cloned model preparation.
 - `scripts`: deterministic GLB audit, local Draco decompression, Blender preparation.
 - `tests`: desktop/mobile, registry restoration, real-asset loading and Blender preparation validation.

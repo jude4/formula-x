@@ -1,7 +1,11 @@
-import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
+import { useReducedMotion } from 'framer-motion';
+import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { ContactShadows, Environment, Lightformer, OrbitControls, useGLTF, useProgress, Html } from '@react-three/drei';
 import { Color, PerspectiveCamera, Vector3 } from 'three';
+import type { ThreeEvent } from '@react-three/fiber';
+import { useExplorer } from '../../stores/explorer-store';
+import { componentFocus, highlightComponent } from '../../features/component-explorer/selection';
 import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 import { prepareReferenceVehicle } from '../../models/vehicle/prepare';
 import { useShowroom } from '../../stores/showroom-store';
@@ -9,9 +13,34 @@ import { useShowroom } from '../../stores/showroom-store';
 function Vehicle({ onReady }: { onReady: () => void }) {
   const gltf = useGLTF('/models/ferrari.glb', '/draco/');
   const prepared = useMemo(() => prepareReferenceVehicle(gltf), [gltf]);
+  const open = useExplorer((s) => s.open);
+  const selectedId = useExplorer((s) => s.selectedId);
+  const inspectKey = useExplorer((s) => s.inspectKey);
+  const hoveredId = useExplorer((s) => s.hoveredId);
+  const componentLabelFocus = useExplorer((s) => s.focus);
+  const gl = useThree((s) => s.gl);
   useEffect(() => { onReady(); }, [onReady]);
   useEffect(() => () => prepared.dispose(), [prepared]);
-  return <primitive object={prepared.placement} />;
+  useLayoutEffect(() => {
+    const selected = selectedId ? prepared.registry.entries.get(selectedId) : undefined;
+    if (!open || !selected) return;
+    const cleanup = highlightComponent(selected.object);
+    useExplorer.getState().setFocus(componentFocus(selected, inspectKey));
+    return cleanup;
+  }, [open, selectedId, inspectKey, prepared]);
+  useEffect(() => { gl.domElement.style.cursor = open && hoveredId ? 'pointer' : 'grab'; return () => { gl.domElement.style.cursor = ''; }; }, [open, hoveredId, gl]);
+  function hit(event: ThreeEvent<PointerEvent | MouseEvent>) {
+    // Only the frontmost hit counts; never select hidden parts through bodywork.
+    return prepared.registry.resolve(event.intersections[0]?.object ?? event.object);
+  }
+  return <group onClick={(event) => {
+    if (!open || event.delta > 5) return;
+    const entry = hit(event); if (!entry) return;
+    event.stopPropagation(); useExplorer.getState().select(entry.metadata.id);
+  }} onPointerMove={(event) => { if (open) useExplorer.getState().hover(hit(event)?.metadata.id ?? null); }} onPointerLeave={() => useExplorer.getState().hover(null)}>
+    <primitive object={prepared.placement} />
+    {open && selectedId && componentLabelFocus && <Html position={[...componentLabelFocus.target]} style={{ pointerEvents: 'none' }} zIndexRange={[4, 0]}><div className="component-label">{prepared.registry.entries.get(selectedId)?.metadata.displayName}</div></Html>}
+  </group>;
 }
 function Loading() {
   const { progress } = useProgress();
@@ -19,27 +48,35 @@ function Loading() {
 }
 const views = { hero: [4.4, 1.9, -5.0], front: [0, 1.65, -7.4], rear: [0, 1.9, 7.4], side: [7.4, 1.65, 0] } as const;
 function CameraRig({ mobile }: { mobile: boolean }) {
+  const reduceMotion = useReducedMotion();
   const camera = useThree((s) => s.camera);
   useEffect(() => { if (camera instanceof PerspectiveCamera) { camera.fov = mobile ? 43 : 32; camera.updateProjectionMatrix(); } }, [camera, mobile]);
   const controls = useRef<OrbitControlsImpl>(null);
   const { view, resetKey, autoRotate } = useShowroom();
+  const focus = useExplorer((s) => s.focus);
+  const open = useExplorer((s) => s.open);
+  const targetLookAt = useRef(new Vector3(0, 0.6, 0));
   const moving = useRef(true);
   const targetPosition = useRef(new Vector3(...views.hero));
-  useEffect(() => { targetPosition.current.fromArray(views[view]); moving.current = true; }, [view, resetKey]);
+  useEffect(() => { targetPosition.current.fromArray(views[view]); targetLookAt.current.set(0, 0.6, 0); moving.current = true; }, [view, resetKey]);
+  useEffect(() => {
+    if (!open || !focus) return;
+    targetPosition.current.fromArray(focus.position); targetLookAt.current.fromArray(focus.target); moving.current = true;
+  }, [open, focus]);
   useFrame(({ camera }, delta) => {
     if (!moving.current || !controls.current) return;
-    camera.position.lerp(targetPosition.current, 1 - Math.exp(-delta * 3.5));
-    controls.current.target.lerp(new Vector3(0, 0.6, 0), 1 - Math.exp(-delta * 3.5));
+    camera.position.lerp(targetPosition.current, reduceMotion ? 1 : 1 - Math.exp(-delta * 3.5));
+    controls.current.target.lerp(targetLookAt.current, reduceMotion ? 1 : 1 - Math.exp(-delta * 3.5));
     controls.current.update();
-    if (camera.position.distanceTo(targetPosition.current) < 0.015) moving.current = false;
+    if (camera.position.distanceTo(targetPosition.current) < 0.015 && controls.current.target.distanceTo(targetLookAt.current) < 0.015) moving.current = false;
   });
-  return <OrbitControls ref={controls} makeDefault target={[0, 0.6, 0]} minDistance={4} maxDistance={12} minPolarAngle={0.2} maxPolarAngle={Math.PI / 2 - 0.035} enableDamping dampingFactor={0.06} autoRotate={autoRotate} autoRotateSpeed={0.45} onStart={() => { moving.current = false; }} />;
+  return <OrbitControls ref={controls} makeDefault target={[0, 0.6, 0]} minDistance={open ? 0.8 : 4} maxDistance={12} minPolarAngle={0.2} maxPolarAngle={Math.PI / 2 - 0.035} enableDamping dampingFactor={0.06} autoRotate={autoRotate} autoRotateSpeed={0.45} onStart={() => { moving.current = false; }} />;
 }
 export default function Showroom({ onReady }: { onReady: () => void }) {
   const quality = useShowroom((s) => s.quality);
   const [mobile, setMobile] = useState(() => window.innerWidth <= 600);
   useEffect(() => { const media = window.matchMedia('(max-width: 600px)'); const update = () => setMobile(media.matches); media.addEventListener('change', update); return () => media.removeEventListener('change', update); }, []);
-  return <Canvas shadows dpr={quality === 'high' ? [1, 1.75] : [1, 1]} camera={{ position: [5.2, 2.3, -5.9], fov: mobile ? 43 : 32, near: 0.1, far: 70 }} gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }} onCreated={({ gl }) => { gl.setClearColor(new Color('#141713'), 0); gl.toneMappingExposure = 1.15; }} fallback={<div className="webgl-fallback">WebGL is unavailable. Please open FORMULA X in a browser with hardware acceleration enabled.</div>}>
+  return <Canvas onPointerMissed={(event) => { if (event.type === 'click' && useExplorer.getState().selectedId) useExplorer.getState().clear(); }} shadows dpr={quality === 'high' ? [1, 1.75] : [1, 1]} camera={{ position: [5.2, 2.3, -5.9], fov: mobile ? 43 : 32, near: 0.1, far: 70 }} gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }} onCreated={({ gl }) => { gl.setClearColor(new Color('#141713'), 0); gl.toneMappingExposure = 1.15; }} fallback={<div className="webgl-fallback">WebGL is unavailable. Please open FORMULA X in a browser with hardware acceleration enabled.</div>}>
     <fog attach="fog" args={['#151713', 15, 35]} />
     <ambientLight intensity={0.25} />
     <Suspense fallback={<Loading />}>
