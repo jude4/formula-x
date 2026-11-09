@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { useDisassembly } from './disassembly-store';
 import { referenceManifest } from '../models/vehicle/manifest';
 import { useShowroom } from './showroom-store';
 import type { Vec3 } from '../types/vehicle';
@@ -19,6 +20,7 @@ interface ExplorerState {
 export const useExplorer = create<ExplorerState>((set, get) => ({
   open: false, selectedId: null, hoveredId: null, inspectKey: 0, focus: null,
   setOpen(open) {
+    useDisassembly.getState().exit();
     if (open) useShowroom.setState({ autoRotate: false, entered: true });
     else useShowroom.getState().reset();
     set({ open, selectedId: null, hoveredId: null, focus: null });
@@ -26,10 +28,11 @@ export const useExplorer = create<ExplorerState>((set, get) => ({
   select(id) {
     if (!get().open || !referenceManifest.components.some((c) => c.id === id && c.selectable)) return;
     useShowroom.setState({ autoRotate: false });
+    useDisassembly.getState().selectionChanged(id);
     set((s) => ({ selectedId: id, inspectKey: s.inspectKey + 1 }));
   },
   hover: (hoveredId) => set({ hoveredId }),
-  clear() { set({ selectedId: null, hoveredId: null, focus: null }); useShowroom.getState().reset(); },
+  clear() { useDisassembly.getState().selectionChanged(null); set({ selectedId: null, hoveredId: null, focus: null }); useShowroom.getState().reset(); },
   refocus: () => set((s) => ({ inspectKey: s.inspectKey + 1 })),
   setFocus: (focus) => set({ focus }),
 }));

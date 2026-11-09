@@ -1,6 +1,7 @@
 import { lazy, Suspense, useCallback, useEffect, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { ArrowUpRight, ArrowRight, RotateCcw, Rotate3D, Maximize, Minimize, X, MoveUpRight, Mouse, ChevronDown, Info, Check, Settings2 } from 'lucide-react';
+import { useDisassembly } from '../stores/disassembly-store';
 import { useExplorer } from '../stores/explorer-store';
 import ComponentExplorer from '../features/component-explorer/ComponentExplorer';
 import { useShowroom } from '../stores/showroom-store';
@@ -14,6 +15,7 @@ export default function App() {
   const [fullscreen, setFullscreen] = useState(false);
   const [menu, setMenu] = useState(false);
   const state = useShowroom();
+  const disassembly = useDisassembly((s) => s.active);
   const explorerOpen = useExplorer((s) => s.open);
   const selectedId = useExplorer((s) => s.selectedId);
   const reduceMotion = useReducedMotion();
@@ -26,10 +28,10 @@ export default function App() {
   }, []);
   useEffect(() => { if (about) document.getElementById('close-about')?.focus(); }, [about]);
   async function toggleFullscreen() { try { if (document.fullscreenElement) await document.exitFullscreen(); else await document.documentElement.requestFullscreen(); } catch { /* Browser may reject fullscreen; no app state is changed. */ } }
-  return <main className={`experience${explorerOpen ? " explorer-open" : ""}${selectedId ? " has-selection" : ""}`}>
+  return <main className={`experience${explorerOpen ? " explorer-open" : ""}${selectedId ? " has-selection" : ""}${disassembly ? " disassembly-open" : ""}`}>
     <header className="header">
       <a className="brand" href="/" aria-label="Formula X home">FORMULA<span className="brand-x">X</span><span className="brand-caption">AUTOMOTIVE EXPLORATION</span></a>
-      <nav aria-label="Main navigation"><button aria-pressed={!explorerOpen} className={!explorerOpen ? "nav-active" : ""} onClick={() => useExplorer.getState().setOpen(false)}>Showroom</button><button aria-pressed={explorerOpen} className={explorerOpen ? "nav-active" : ""} disabled={!ready} onClick={() => useExplorer.getState().setOpen(true)}>Components</button><button onClick={() => setAbout(true)}>The project <ArrowUpRight size={13}/></button></nav>
+      <nav aria-label="Main navigation"><button aria-pressed={!explorerOpen} className={!explorerOpen ? "nav-active" : ""} onClick={() => useExplorer.getState().setOpen(false)}>Showroom</button><button aria-pressed={explorerOpen && !disassembly} className={explorerOpen && !disassembly ? "nav-active" : ""} disabled={!ready} onClick={() => useExplorer.getState().setOpen(true)}>Components</button><button aria-pressed={disassembly} className={disassembly ? "nav-active" : ""} disabled={!ready} onClick={() => { if (!disassembly) { useExplorer.getState().setOpen(true); useDisassembly.getState().enter(); } }}>Disassembly</button><button onClick={() => setAbout(true)}>The project <ArrowUpRight size={13}/></button></nav>
       <div className="header-end"><span className="status-dot"/><span>LIVE 3D EXPERIENCE</span><span className="edition">VOL. 001</span></div>
     </header>
     <section className="showroom" aria-label="Interactive automotive showroom">
@@ -41,7 +43,7 @@ export default function App() {
         <p>A closer look at extraordinary engineering.<br/>Every curve. Every detail. Every possibility.</p>
       </motion.div>
       <div className="scene"><SceneErrorBoundary><Suspense fallback={<div className="initial-loading">OPENING THE STUDIO…</div>}><Showroom onReady={onReady}/></Suspense></SceneErrorBoundary></div>
-      <div className="scene-topline"><span>{explorerOpen ? '02 / COMPONENT STUDY' : '01 / THE SHOWROOM'}</span><span className="live-mark"><span className="status-dot"/>{ready ? 'REAL-TIME RENDER' : 'LOADING ASSETS'}</span></div>
+      <div className="scene-topline"><span>{disassembly ? '03 / REFERENCE DISASSEMBLY' : explorerOpen ? '02 / COMPONENT STUDY' : '01 / THE SHOWROOM'}</span><span className="live-mark"><span className="status-dot"/>{ready ? 'REAL-TIME RENDER' : 'LOADING ASSETS'}</span></div>
       {explorerOpen && <ComponentExplorer/>}<aside className="vehicle-card"><span className="eyebrow">THE FIRST STUDY</span><h2>Form meets<br/>performance.</h2><p>An exploration of the supercar.<br/>Presented in its purest form.</p><div className="vehicle-card-line"/><div className="reference-label">458 ITALIA <span>REFERENCE SERIES</span></div><button className="text-button" onClick={() => setAbout(true)}>About this study <ArrowUpRight size={15}/></button></aside>
       <div className="floor-label" aria-hidden="true"><span>FX—001</span><span>DESIGN / ENGINEERING / EXPLORATION</span></div>
       <div className="bottom-content">
@@ -59,7 +61,7 @@ export default function App() {
       </div>
       <span className="side-index" aria-hidden="true">EST. 2026 — CONCEPT STUDIES</span>
     </section>
-    <footer><span>BUILT ON CURIOSITY. DRIVEN BY DETAIL.</span><button onClick={() => setAbout(true)}><Info size={13}/> Phase 03 — Component explorer <ArrowRight size={13}/></button><span className="footer-brand">BEYOND THE MACHINE <span>↗</span></span></footer>
-    <AnimatePresence>{about && <motion.div className="modal-backdrop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setAbout(false)}><section className="about-modal" role="dialog" aria-modal="true" aria-labelledby="about-title" onClick={(e) => e.stopPropagation()} onKeyDown={(e) => { if (e.key === 'Tab') { e.preventDefault(); document.getElementById('close-about')?.focus(); } }}><button id="close-about" className="close-button" aria-label="Close project information" onClick={() => setAbout(false)}><X size={20}/></button><div className="eyebrow">FORMULA X / DEVELOPMENT STUDY</div><h2 id="about-title">Anatomy of<br/>an experience.</h2><p>The studio foundation is preserved. Phase 03 adds selection, highlighting, camera focus, and a searchable explorer for the reference model’s independent components. Orbit, pan, zoom, choose a perspective, or let the camera rotate.</p><div className="phase-note"><span>03</span><div><strong>Component explorer</strong><p>Reference study · limited asset coverage</p></div><Info size={18}/></div><p>The Ferrari 458 Italia is a temporary reference asset by vicent091036, distributed with the Three.js car example. It is not the original FORMULA X V12. Attribution is recorded in the repository. Original model licensing must be confirmed before publication.</p><p>The reference has independent wheel geometry but lacks separate body panels and mechanical internals. A licensed original vehicle is required for full vehicle coverage. The explorer covers verified reference geometry. Disassembly and later experiences have not started.</p><div className="modal-bottom">CONCEPT SPECIFICATIONS ARE ILLUSTRATIVE<span>FX—001</span></div></section></motion.div>}</AnimatePresence>
+    <footer><span>BUILT ON CURIOSITY. DRIVEN BY DETAIL.</span><button onClick={() => setAbout(true)}><Info size={13}/> Phase 04 — Reference disassembly <ArrowRight size={13}/></button><span className="footer-brand">BEYOND THE MACHINE <span>↗</span></span></footer>
+    <AnimatePresence>{about && <motion.div className="modal-backdrop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setAbout(false)}><section className="about-modal" role="dialog" aria-modal="true" aria-labelledby="about-title" onClick={(e) => e.stopPropagation()} onKeyDown={(e) => { if (e.key === 'Tab') { e.preventDefault(); document.getElementById('close-about')?.focus(); } }}><button id="close-about" className="close-button" aria-label="Close project information" onClick={() => setAbout(false)}><X size={20}/></button><div className="eyebrow">FORMULA X / DEVELOPMENT STUDY</div><h2 id="about-title">Anatomy of<br/>an experience.</h2><p>The studio foundation is preserved. Phase 04 adds reversible separation, staged assembly, isolation and visibility for the verified reference components. Orbit, pan, zoom, choose a perspective, or let the camera rotate.</p><div className="phase-note"><span>04</span><div><strong>Reference disassembly</strong><p>Reference study · limited asset coverage</p></div><Info size={18}/></div><p>The Ferrari 458 Italia is a temporary reference asset by vicent091036, distributed with the Three.js car example. It is not the original FORMULA X V12. Attribution is recorded in the repository. Original model licensing must be confirmed before publication.</p><p>The reference has independent wheel geometry but lacks separate body panels and mechanical internals. A licensed original vehicle is required for full vehicle coverage. The explorer covers verified reference geometry. The exploded view covers the available wheel and steering geometry. Engineering labs and later experiences have not started.</p><div className="modal-bottom">CONCEPT SPECIFICATIONS ARE ILLUSTRATIVE<span>FX—001</span></div></section></motion.div>}</AnimatePresence>
   </main>;
 }
