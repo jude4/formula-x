@@ -4,6 +4,8 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { ContactShadows, Environment, Lightformer, OrbitControls, useGLTF, useProgress, Html } from '@react-three/drei';
 import { Color, PerspectiveCamera, Vector3 } from 'three';
 import type { ThreeEvent } from '@react-three/fiber';
+import { useCustomization } from '../../stores/customization-store';
+import { createCustomizationController } from '../../features/customization/controller';
 import { useEngineering } from '../../stores/engineering-store';
 import { cornerAssemblies, engineeringHidden, engineeringLevels, validateEngineeringCatalog } from '../../features/engineering/catalog';
 import { engineeringFocus } from '../../features/engineering/focus';
@@ -19,6 +21,10 @@ import { useShowroom } from '../../stores/showroom-store';
 function Vehicle({ onReady }: { onReady: () => void }) {
   const gltf = useGLTF('/models/ferrari.glb', '/draco/');
   const prepared = useMemo(() => prepareReferenceVehicle(gltf), [gltf]);
+  const appearance = useCustomization((s) => s.appearance);
+  const customizer = useMemo(() => createCustomizationController(prepared.registry), [prepared]);
+  useLayoutEffect(() => { customizer.apply(appearance); }, [customizer, appearance]);
+  useEffect(() => () => customizer.dispose(), [customizer]);
   const open = useExplorer((s) => s.open);
   const selectedId = useExplorer((s) => s.selectedId);
   const inspectKey = useExplorer((s) => s.inspectKey);
@@ -63,7 +69,7 @@ function Vehicle({ onReady }: { onReady: () => void }) {
     const cleanup = highlightComponent(selected.object, engineering.active ? { edgeOpacity: 0.08, emissiveIntensity: 0.015 } : undefined);
     useExplorer.getState().setFocus(componentFocus(selected, inspectKey));
     return cleanup;
-  }, [open, selectedId, inspectKey, prepared, engineering.active]);
+  }, [open, selectedId, inspectKey, prepared, engineering.active, appearance]);
   useLayoutEffect(() => {
     if (!engineering.active) return;
     useEngineering.setState({ focus: engineeringFocus(prepared.registry, engineering.corner, engineering.separated, engineering.distance, view, engineering.framingKey) });
@@ -101,6 +107,9 @@ function CameraRig({ mobile }: { mobile: boolean }) {
   const framingKey = useDisassembly((s) => s.framingKey);
   const engineering = useEngineering((s) => s.active);
   const labFocus = useEngineering((s) => s.focus);
+  const customization = useCustomization((s) => s.active);
+  const inspection = useCustomization((s) => s.inspection);
+  const customViewKey = useCustomization((s) => s.viewKey);
   const open = useExplorer((s) => s.open);
   const targetLookAt = useRef(new Vector3(0, 0.6, 0));
   const moving = useRef(true);
@@ -120,6 +129,12 @@ function CameraRig({ mobile }: { mobile: boolean }) {
     if (!engineering || !labFocus) return;
     targetPosition.current.fromArray(labFocus.position); targetLookAt.current.fromArray(labFocus.target); if (mobile) targetPosition.current.sub(targetLookAt.current).multiplyScalar(0.85).add(targetLookAt.current); moving.current = true;
   }, [engineering, labFocus, mobile]);
+  useEffect(() => {
+    if (!customization) return;
+    if (inspection === 'upholstery') { targetPosition.current.set(0.1, 2.9, 1.4); targetLookAt.current.set(0, 0.75, 0); }
+    else { targetPosition.current.fromArray(views.hero); targetLookAt.current.set(0, 0.6, 0); }
+    moving.current = true;
+  }, [customization, inspection, customViewKey]);
   useFrame(({ camera }, delta) => {
     if (!moving.current || !controls.current) return;
     camera.position.lerp(targetPosition.current, reduceMotion ? 1 : 1 - Math.exp(-delta * 3.5));
@@ -127,7 +142,7 @@ function CameraRig({ mobile }: { mobile: boolean }) {
     controls.current.update();
     if (camera.position.distanceTo(targetPosition.current) < 0.015 && controls.current.target.distanceTo(targetLookAt.current) < 0.015) moving.current = false;
   });
-  return <OrbitControls ref={controls} makeDefault target={[0, 0.6, 0]} minDistance={open ? 0.8 : 4} maxDistance={disassembly ? 22 : 12} minPolarAngle={0.2} maxPolarAngle={Math.PI / 2 - 0.035} enableDamping dampingFactor={0.06} autoRotate={autoRotate} autoRotateSpeed={0.45} onStart={() => { moving.current = false; }} />;
+  return <OrbitControls ref={controls} makeDefault target={[0, 0.6, 0]} minDistance={open || customization ? 0.8 : 4} maxDistance={disassembly ? 22 : 12} minPolarAngle={0.2} maxPolarAngle={Math.PI / 2 - 0.035} enableDamping dampingFactor={0.06} autoRotate={autoRotate} autoRotateSpeed={0.45} onStart={() => { moving.current = false; }} />;
 }
 export default function Showroom({ onReady }: { onReady: () => void }) {
   const quality = useShowroom((s) => s.quality);

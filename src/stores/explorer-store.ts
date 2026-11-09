@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { useCustomization } from './customization-store';
 import { useEngineering } from './engineering-store';
 import { cornerSelectable } from '../features/engineering/catalog';
 import { useDisassembly } from './disassembly-store';
@@ -24,6 +25,7 @@ export const useExplorer = create<ExplorerState>((set, get) => ({
   setOpen(open) {
     useDisassembly.getState().exit();
     useEngineering.getState().exit();
+    useCustomization.getState().exit();
     if (open) useShowroom.setState({ autoRotate: false, entered: true });
     else useShowroom.getState().reset();
     set({ open, selectedId: null, hoveredId: null, focus: null });
