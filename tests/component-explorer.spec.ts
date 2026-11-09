@@ -21,6 +21,10 @@ test('highlight restores source materials and temporary edges; unverified compon
   expect(useExplorer.getState().selectedId).toBe('reference.node.42');
   useExplorer.getState().setOpen(false);
   expect(useExplorer.getState().selectedId).toBeNull();
+  let sourceDisposed = false; object.geometry.addEventListener('dispose', () => { sourceDisposed = true; });
+  const restoreOutline = highlightComponent(object, { edgeOpacity: 0.08, emissiveIntensity: 0.015 });
+  expect(object.children[0].name).toBe('ComponentSelectionEdges');
+  restoreOutline(); expect(sourceDisposed).toBe(false); expect(object.material).toBe(material);
   object.geometry.dispose(); material.dispose();
 });
 
@@ -93,7 +97,8 @@ test('a real frontmost raycast click selects visible geometry and focuses the ca
     const moduleUrl = source.match(/from\s+["']([^"']*react-three_fiber[^"']*)["']/)![1];
     const { _roots } = await import(/* @vite-ignore */ moduleUrl);
     const current = _roots.get(document.querySelector('canvas')).store.getState();
-    const { useExplorer } = await import(/* @vite-ignore */ '/src/stores/explorer-store.ts');
+    const storeUrl = source.match(/from\s+["']([^"']*\/stores\/explorer-store\.ts[^"']*)["']/)![1];
+    const { useExplorer } = await import(/* @vite-ignore */ storeUrl);
     const target = useExplorer.getState().focus.target;
     return { moved: current.camera.position.toArray().some((n: number, i: number) => Math.abs(n - previous[i]) > 0.2), focused: current.controls.target.toArray().every((n: number, i: number) => Math.abs(n - target[i]) < 0.08), edges: current.scene.getObjectByName('ComponentSelectionEdges') !== undefined };
   }, projected.camera), { timeout: 10000 }).toEqual({ moved: true, focused: true, edges: true });

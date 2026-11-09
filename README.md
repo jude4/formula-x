@@ -1,6 +1,6 @@
 # FORMULA X — Beyond the Machine
 
-Phase 4 reference exploded view: an interactive automotive studio built with React 19, TypeScript, Vite, React Three Fiber, Drei, Three.js, Zustand, Tailwind CSS, Framer Motion, and Lucide.
+Phase 5 partial engineering laboratory: an interactive automotive studio built with React 19, TypeScript, Vite, React Three Fiber, Drei, Three.js, Zustand, Tailwind CSS, Framer Motion, and Lucide.
 
 ## Develop
 
@@ -29,6 +29,7 @@ Browser tests use `/usr/bin/chromium` by default. Set `PLAYWRIGHT_CHROMIUM_EXECU
 - Fullscreen when the browser supports it.
 - Components mode: real model selection, searchable hierarchy, highlighting/edges, camera focus, related components, and clear/close actions.
 - Disassembly mode: actual geometry separation, five stages, distance, pause/resume, individual/group assembly, isolation, visibility, moving labels and guide lines.
+- Engineering mode: four real wheel corners, source layer toggles, brake/rim/tire inspection and isolation, reversible assembly separation, camera framing and source information. Engine/suspension/chassis labs require missing assets.
 - Enter the experience, project notes, keyboard dismissal and focus management.
 - Asset loading progress, error boundary, and unsupported-WebGL fallback.
 
@@ -38,9 +39,9 @@ The initial reveal gently settles into the front-quarter view. Camera distance a
 
 The vehicle is the Ferrari 458 reference asset used by the official Three.js car example, credited to **vicent091036**. It is not an original FORMULA X vehicle. It does not contain the complete individually separated mechanical architecture required for later phases. The project information panel states these limitations; no unimplemented disassembly, customization, cockpit, or driving controls are displayed.
 
-See [asset provenance](docs/ASSETS.md), [Phase 1 validation](docs/PHASE-1.md), and [Phase 2 preparation](docs/PHASE-2.md), and [Phase 3 explorer](docs/PHASE-3.md), and [Phase 4 exploded view](docs/PHASE-4.md). Original model licensing confirmation is a remaining release prerequisite, separate from upstream code licensing. This is a development study, not a cleared commercial asset package.
+See [asset provenance](docs/ASSETS.md), [Phase 1 validation](docs/PHASE-1.md), and [Phase 2 preparation](docs/PHASE-2.md), and [Phase 3 explorer](docs/PHASE-3.md), and [Phase 4 exploded view](docs/PHASE-4.md), and [Phase 5 laboratory](docs/PHASE-5.md). Original model licensing confirmation is a remaining release prerequisite, separate from upstream code licensing. This is a development study, not a cleared commercial asset package.
 
-Phase 2 was authorized. A central 58-node registry, source manifest, validation pipeline and Blender preparation workflow are implemented. Full asset acceptance remains blocked on a licensed original vehicle with the missing independent components. Phase 3 was authorized on the reference model and adds a working explorer for the 17 verified inspectable components. Phase 4 adds reversible presentation separation for those same components. Full original-vehicle asset completeness remains unresolved.
+Phase 2 was authorized. A central 58-node registry, source manifest, validation pipeline and Blender preparation workflow are implemented. Full asset acceptance remains blocked on a licensed original vehicle with the missing independent components. Phase 3 was authorized on the reference model and adds a working explorer for the 17 verified inspectable components. Phase 4 adds reversible presentation separation for those same components. Phase 5 adds a partial wheel-corner/brake-reference laboratory. Full original-vehicle asset completeness remains unresolved.
 
 ## Architecture
 
@@ -49,6 +50,8 @@ Phase 2 was authorized. A central 58-node registry, source manifest, validation 
 - `src/stores`: shared showroom state.
 - `src/components/ui`: scene error handling.
 - `public/models`, `public/draco`: local rendering assets and upstream notices.
+- `src/features/engineering`: actual source corner catalog, layer controls, engineering panel and laboratory camera framing.
+- `src/stores/engineering-store.ts`: isolated corner, layers, inspection and separation state.
 - `src/features/disassembly`: authored presentation offsets, GSAP controller, controls and live guide/label rendering.
 - `src/stores/disassembly-store.ts`: sequence, individual targets, distance, pause and visibility intent.
 - `src/features/component-explorer`: hierarchy, metadata, selection feedback, and component camera targets.

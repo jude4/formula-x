@@ -4,6 +4,9 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { ContactShadows, Environment, Lightformer, OrbitControls, useGLTF, useProgress, Html } from '@react-three/drei';
 import { Color, PerspectiveCamera, Vector3 } from 'three';
 import type { ThreeEvent } from '@react-three/fiber';
+import { useEngineering } from '../../stores/engineering-store';
+import { cornerAssemblies, engineeringHidden, engineeringLevels, validateEngineeringCatalog } from '../../features/engineering/catalog';
+import { engineeringFocus } from '../../features/engineering/focus';
 import { useDisassembly } from '../../stores/disassembly-store';
 import { createDisassemblyController } from '../../features/disassembly/controller';
 import { DisassemblyPresentation, FollowingLabel } from '../../features/disassembly/DisassemblyPresentation';
@@ -24,24 +27,47 @@ function Vehicle({ onReady }: { onReady: () => void }) {
   const levels = useDisassembly((s) => s.levels), distance = useDisassembly((s) => s.distance);
   const paused = useDisassembly((s) => s.paused), resetKey = useDisassembly((s) => s.resetKey);
   const hidden = useDisassembly((s) => s.hidden), isolatedId = useDisassembly((s) => s.isolatedId);
+  const engineering = useEngineering();
+  const { view, resetKey: cameraReset } = useShowroom();
+  const labLevels = useMemo(() => engineeringLevels(engineering.corner, engineering.separated), [engineering.corner, engineering.separated]);
+  const motionLevels = engineering.active ? labLevels : levels;
+  const motionDistance = engineering.active ? engineering.distance : distance;
+  const motionPaused = engineering.active ? engineering.paused : paused;
   const reduceMotion = useReducedMotion();
-  const controller = useMemo(() => createDisassemblyController(prepared.registry, prepared.placement, (animating) => useDisassembly.setState({ animating })), [prepared]);
+  const controller = useMemo(() => {
+    validateEngineeringCatalog();
+    return createDisassemblyController(prepared.registry, prepared.placement, (animating) => {
+      if (useEngineering.getState().active) useEngineering.setState({ animating });
+      else useDisassembly.setState({ animating });
+    });
+  }, [prepared]);
   useEffect(() => () => controller.dispose(), [controller]);
-  useLayoutEffect(() => { controller.reset(); }, [controller, resetKey, disassembly]);
-  useLayoutEffect(() => { if (disassembly) controller.animate(levels, distance, paused, !!reduceMotion); }, [controller, disassembly, levels, distance, reduceMotion, resetKey]);
-  useLayoutEffect(() => { controller.pause(paused); }, [controller, paused]);
+  useLayoutEffect(() => { controller.reset(); }, [controller, resetKey, disassembly, engineering.active, engineering.resetKey]);
+  useLayoutEffect(() => {
+    if (disassembly || engineering.active) controller.animate(motionLevels, motionDistance, motionPaused, !!reduceMotion);
+  }, [controller, disassembly, engineering.active, motionLevels, motionDistance, reduceMotion, resetKey, engineering.resetKey]);
+  useLayoutEffect(() => { controller.pause(motionPaused); }, [controller, motionPaused]);
   useFrame((_, delta) => controller.advance(delta));
-  useLayoutEffect(() => { controller.visibility(disassembly ? hidden : {}, disassembly ? isolatedId : null); }, [controller, disassembly, hidden, isolatedId, resetKey]);
+  useLayoutEffect(() => {
+    if (engineering.active) {
+      const assembly = cornerAssemblies[engineering.corner];
+      controller.visibility(engineeringHidden(engineering.corner, engineering.layers), engineering.isolateSelected && selectedId ? selectedId : assembly.assembly);
+    } else controller.visibility(disassembly ? hidden : {}, disassembly ? isolatedId : null);
+  }, [controller, disassembly, hidden, isolatedId, resetKey, engineering.active, engineering.corner, engineering.layers, engineering.isolateSelected, selectedId, engineering.resetKey]);
   const gl = useThree((s) => s.gl);
   useEffect(() => { onReady(); }, [onReady]);
   useEffect(() => () => prepared.dispose(), [prepared]);
   useLayoutEffect(() => {
     const selected = selectedId ? prepared.registry.entries.get(selectedId) : undefined;
     if (!open || !selected) return;
-    const cleanup = highlightComponent(selected.object);
+    const cleanup = highlightComponent(selected.object, engineering.active ? { edgeOpacity: 0.08, emissiveIntensity: 0.015 } : undefined);
     useExplorer.getState().setFocus(componentFocus(selected, inspectKey));
     return cleanup;
-  }, [open, selectedId, inspectKey, prepared]);
+  }, [open, selectedId, inspectKey, prepared, engineering.active]);
+  useLayoutEffect(() => {
+    if (!engineering.active) return;
+    useEngineering.setState({ focus: engineeringFocus(prepared.registry, engineering.corner, engineering.separated, engineering.distance, view, engineering.framingKey) });
+  }, [prepared, engineering.active, engineering.corner, engineering.separated, engineering.distance, engineering.framingKey, engineering.resetKey, view, cameraReset]);
   useEffect(() => { gl.domElement.style.cursor = open && hoveredId ? 'pointer' : 'grab'; return () => { gl.domElement.style.cursor = ''; }; }, [open, hoveredId, gl]);
   function hit(event: ThreeEvent<PointerEvent | MouseEvent>) {
     // Invisible meshes are excluded explicitly because Three.js raycasting can still hit them.
@@ -73,11 +99,13 @@ function CameraRig({ mobile }: { mobile: boolean }) {
   const focus = useExplorer((s) => s.focus);
   const disassembly = useDisassembly((s) => s.active);
   const framingKey = useDisassembly((s) => s.framingKey);
+  const engineering = useEngineering((s) => s.active);
+  const labFocus = useEngineering((s) => s.focus);
   const open = useExplorer((s) => s.open);
   const targetLookAt = useRef(new Vector3(0, 0.6, 0));
   const moving = useRef(true);
   const targetPosition = useRef(new Vector3(...views.hero));
-  useEffect(() => { targetPosition.current.fromArray(views[view]).multiplyScalar(disassembly ? 1.9 : 1); targetLookAt.current.set(0, 0.6, 0); moving.current = true; }, [view, resetKey, disassembly]);
+  useEffect(() => { if (engineering) return; targetPosition.current.fromArray(views[view]).multiplyScalar(disassembly ? 1.9 : 1); targetLookAt.current.set(0, 0.6, 0); moving.current = true; }, [view, resetKey, disassembly, engineering]);
   useEffect(() => {
     if (!open || !focus) return;
     targetPosition.current.fromArray(focus.position); targetLookAt.current.fromArray(focus.target); moving.current = true;
@@ -88,6 +116,10 @@ function CameraRig({ mobile }: { mobile: boolean }) {
     targetPosition.current.set(8 + distance * 1.5, 4 + distance, -9.5 - distance * 1.5).multiplyScalar(mobile ? 0.76 : 1);
     targetLookAt.current.set(0, 0.8, 0); moving.current = true;
   }, [disassembly, framingKey, mobile]);
+  useEffect(() => {
+    if (!engineering || !labFocus) return;
+    targetPosition.current.fromArray(labFocus.position); targetLookAt.current.fromArray(labFocus.target); if (mobile) targetPosition.current.sub(targetLookAt.current).multiplyScalar(0.85).add(targetLookAt.current); moving.current = true;
+  }, [engineering, labFocus, mobile]);
   useFrame(({ camera }, delta) => {
     if (!moving.current || !controls.current) return;
     camera.position.lerp(targetPosition.current, reduceMotion ? 1 : 1 - Math.exp(-delta * 3.5));
@@ -99,6 +131,7 @@ function CameraRig({ mobile }: { mobile: boolean }) {
 }
 export default function Showroom({ onReady }: { onReady: () => void }) {
   const quality = useShowroom((s) => s.quality);
+  const engineering = useEngineering((s) => s.active);
   const disassembly = useDisassembly((s) => s.active);
   const [mobile, setMobile] = useState(() => window.innerWidth <= 600);
   useEffect(() => { const media = window.matchMedia('(max-width: 600px)'); const update = () => setMobile(media.matches); media.addEventListener('change', update); return () => media.removeEventListener('change', update); }, []);
@@ -113,7 +146,7 @@ export default function Showroom({ onReady }: { onReady: () => void }) {
         <Lightformer intensity={3} color="#e5efd5" position={[-5, 2, 1]} rotation={[0, Math.PI / 2, 0]} scale={[7, 1.5, 1]} />
         <Lightformer intensity={4} color="#ffffff" position={[4, 3, -3]} rotation={[0, -Math.PI / 3, 0]} scale={[6, 2, 1]} />
       </Environment>
-      <ContactShadows position={[0, 0.001, 0]} opacity={0.75} scale={14} blur={2.8} far={4} resolution={disassembly ? 256 : quality === 'high' ? 1024 : 512} color="#000000" frames={disassembly ? Infinity : 1} />
+      <ContactShadows position={[0, 0.001, 0]} opacity={0.75} scale={14} blur={2.8} far={4} resolution={disassembly || engineering ? 256 : quality === 'high' ? 1024 : 512} color="#000000" frames={disassembly || engineering ? Infinity : 1} />
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.012, 0]} receiveShadow><planeGeometry args={[100, 100]} /><meshStandardMaterial color="#060805" metalness={0.12} roughness={0.85} envMapIntensity={0.02} /></mesh>
     </Suspense>
     <CameraRig mobile={mobile} />

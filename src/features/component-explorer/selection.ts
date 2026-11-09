@@ -2,22 +2,23 @@ import { Box3, Color, EdgesGeometry, LineBasicMaterial, LineSegments, Mesh, Vect
 import type { Material, Object3D } from 'three';
 import type { RegisteredComponent } from '../../models/vehicle/registry';
 /** Selection owns only temporary materials/edges; cached asset resources are never disposed. */
-export function highlightComponent(object: Object3D) {
+export function highlightComponent(object: Object3D, style: { edgeOpacity?: number; emissiveIntensity?: number } = {}) {
   const cleanups: (() => void)[] = [];
   const meshes: Mesh[] = []; object.traverse((child) => { if (child instanceof Mesh) meshes.push(child); });
   for (const mesh of meshes) {
     const original = mesh.material;
     const materials = (Array.isArray(original) ? original : [original]).map((material) => {
       const clone = material.clone() as Material & { emissive?: Color; emissiveIntensity?: number; color?: Color };
-      if (clone.emissive) { clone.emissive.set('#c1e991'); clone.emissiveIntensity = 0.12; }
+      if (clone.emissive) { clone.emissive.set('#c1e991'); clone.emissiveIntensity = style.emissiveIntensity ?? 0.12; }
       else clone.color?.lerp(new Color('#c1e991'), 0.3);
       return clone;
     });
     mesh.material = Array.isArray(original) ? materials : materials[0];
     const geometry = new EdgesGeometry(mesh.geometry, 40);
-    const material = new LineBasicMaterial({ color: '#c1e991', transparent: true, opacity: 0.4, depthTest: true, toneMapped: false });
-    const edges = new LineSegments(geometry, material); edges.name = 'ComponentSelectionEdges'; edges.raycast = () => {}; edges.scale.setScalar(1.001); mesh.add(edges);
-    cleanups.push(() => { mesh.remove(edges); geometry.dispose(); material.dispose(); mesh.material = original; materials.forEach((m) => m.dispose()); });
+    const material = new LineBasicMaterial({ color: '#c1e991', transparent: true, opacity: style.edgeOpacity ?? 0.4, depthTest: true, toneMapped: false });
+    const outline = new LineSegments(geometry, material);
+    outline.name = 'ComponentSelectionEdges'; outline.raycast = () => {}; outline.scale.setScalar(1.001); mesh.add(outline);
+    cleanups.push(() => { mesh.remove(outline); geometry.dispose(); material.dispose(); mesh.material = original; materials.forEach((m) => m.dispose()); });
   }
   return () => cleanups.forEach((cleanup) => cleanup());
 }
