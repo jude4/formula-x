@@ -1,6 +1,6 @@
 # FORMULA X — Beyond the Machine
 
-Phase 6 material customization studio: an interactive automotive studio built with React 19, TypeScript, Vite, React Three Fiber, Drei, Three.js, Zustand, Tailwind CSS, Framer Motion, and Lucide.
+Phase 7 cockpit reference inspection: an interactive automotive studio built with React 19, TypeScript, Vite, React Three Fiber, Drei, Three.js, Zustand, Tailwind CSS, Framer Motion, and Lucide.
 
 ## Develop
 
@@ -31,6 +31,7 @@ Browser tests use `/usr/bin/chromium` by default. Set `PLAYWRIGHT_CHROMIUM_EXECU
 - Disassembly mode: actual geometry separation, five stages, distance, pause/resume, individual/group assembly, isolation, visibility, moving labels and guide lines.
 - Engineering mode: four real wheel corners, source layer toggles, brake/rim/tire inspection and isolation, reversible assembly separation, camera framing and source information. Engine/suspension/chassis labs require missing assets.
 - Customize mode: seven paint colours plus custom colour, five body finishes, wheel/brake geometry colours, shared upholstery/trim appearances, exterior/upholstery views and a full customization reset.
+- Cockpit mode: fixed-eye interior viewpoints, drag/arrow look, optical zoom, actual steering inspection/highlight and source-mesh light preview.
 - Enter the experience, project notes, keyboard dismissal and focus management.
 - Asset loading progress, error boundary, and unsupported-WebGL fallback.
 
@@ -38,11 +39,11 @@ The initial reveal gently settles into the front-quarter view. Camera distance a
 
 ## Scope and assets
 
-The vehicle is the Ferrari 458 reference asset used by the official Three.js car example, credited to **vicent091036**. It is not an original FORMULA X vehicle. It does not contain the complete individually separated mechanical architecture required for later phases. The project information panel states these limitations; no unimplemented disassembly, customization, cockpit, or driving controls are displayed.
+The vehicle is the Ferrari 458 reference asset used by the official Three.js car example, credited to **vicent091036**. It is not an original FORMULA X vehicle. It does not contain the complete individually separated mechanical architecture required for later phases. The project information panel states these limitations; unavailable doors, gauges and console switches are identified, and driving controls are deferred.
 
-See [asset provenance](docs/ASSETS.md), [Phase 1 validation](docs/PHASE-1.md), and [Phase 2 preparation](docs/PHASE-2.md), and [Phase 3 explorer](docs/PHASE-3.md), and [Phase 4 exploded view](docs/PHASE-4.md), and [Phase 5 laboratory](docs/PHASE-5.md), and [Phase 6 customization](docs/PHASE-6.md). Original model licensing confirmation is a remaining release prerequisite, separate from upstream code licensing. This is a development study, not a cleared commercial asset package.
+See [asset provenance](docs/ASSETS.md), [Phase 1 validation](docs/PHASE-1.md), and [Phase 2 preparation](docs/PHASE-2.md), and [Phase 3 explorer](docs/PHASE-3.md), and [Phase 4 exploded view](docs/PHASE-4.md), and [Phase 5 laboratory](docs/PHASE-5.md), and [Phase 6 customization](docs/PHASE-6.md), and [Phase 7 cockpit](docs/PHASE-7.md). Original model licensing confirmation is a remaining release prerequisite, separate from upstream code licensing. This is a development study, not a cleared commercial asset package.
 
-Phase 2 was authorized. A central 58-node registry, source manifest, validation pipeline and Blender preparation workflow are implemented. Full asset acceptance remains blocked on a licensed original vehicle with the missing independent components. Phase 3 was authorized on the reference model and adds a working explorer for the 17 verified inspectable components. Phase 4 adds reversible presentation separation for those same components. Phase 5 adds a partial wheel-corner/brake-reference laboratory. Phase 6 adds actual material customization; unsupported geometry variants remain unavailable. Full original-vehicle asset completeness remains unresolved.
+Phase 2 was authorized. A central 58-node registry, source manifest, validation pipeline and Blender preparation workflow are implemented. Full asset acceptance remains blocked on a licensed original vehicle with the missing independent components. Phase 3 was authorized on the reference model and adds a working explorer for the 17 verified inspectable components. Phase 4 adds reversible presentation separation for those same components. Phase 5 adds a partial wheel-corner/brake-reference laboratory. Phase 6 adds actual material customization; unsupported geometry variants remain unavailable. Phase 7 adds partial cockpit inspection with safe fixed viewpoints and source steering controls. Full original-vehicle asset completeness remains unresolved.
 
 ## Architecture
 
@@ -51,6 +52,8 @@ Phase 2 was authorized. A central 58-node registry, source manifest, validation 
 - `src/stores`: shared showroom state.
 - `src/components/ui`: scene error handling.
 - `public/models`, `public/draco`: local rendering assets and upstream notices.
+- `src/features/cockpit`: fixed-eye camera, triangle clearance, source steering lighting/outline and cockpit panel.
+- `src/stores/cockpit-store.ts`: cockpit viewpoints, bounded look/zoom and preview intent.
 - `src/features/customization`: supported finishes, original procedural maps, owned UV projection, material controller and studio panel.
 - `src/stores/customization-store.ts`: appearance state and material-inspection views.
 - `src/features/engineering`: actual source corner catalog, layer controls, engineering panel and laboratory camera framing.

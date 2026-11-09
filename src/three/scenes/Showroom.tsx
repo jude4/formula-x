@@ -1,3 +1,8 @@
+import { useCockpit } from '../../stores/cockpit-store';
+import CockpitCamera from '../../features/cockpit/CockpitCamera';
+import { cockpitViews } from '../../features/cockpit/poses';
+import { assessCockpit } from '../../features/cockpit/safety';
+import { createCockpitLighting, outlineSteering } from '../../features/cockpit/lighting';
 import { useReducedMotion } from 'framer-motion';
 import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
@@ -60,6 +65,19 @@ function Vehicle({ onReady }: { onReady: () => void }) {
       controller.visibility(engineeringHidden(engineering.corner, engineering.layers), engineering.isolateSelected && selectedId ? selectedId : assembly.assembly);
     } else controller.visibility(disassembly ? hidden : {}, disassembly ? isolatedId : null);
   }, [controller, disassembly, hidden, isolatedId, resetKey, engineering.active, engineering.corner, engineering.layers, engineering.isolateSelected, selectedId, engineering.resetKey]);
+  const cockpit = useCockpit();
+  const cockpitLighting = useMemo(() => createCockpitLighting(prepared.registry), [prepared]);
+  useLayoutEffect(() => {
+    if (cockpit.active) useCockpit.setState({ safety: assessCockpit(prepared.placement) });
+  }, [prepared, cockpit.active]);
+  useLayoutEffect(() => {
+    if (cockpit.active) cockpitLighting.apply(cockpit.lights, cockpit.brightness);
+    else cockpitLighting.restore();
+  }, [cockpitLighting, cockpit.active, cockpit.lights, cockpit.brightness]);
+  useEffect(() => () => cockpitLighting.dispose(), [cockpitLighting]);
+  useLayoutEffect(() => {
+    if (cockpit.active && cockpit.highlight) return outlineSteering(prepared.registry.entries.get('reference.node.50')!.object);
+  }, [prepared, cockpit.active, cockpit.highlight]);
   const gl = useThree((s) => s.gl);
   useEffect(() => { onReady(); }, [onReady]);
   useEffect(() => () => prepared.dispose(), [prepared]);
@@ -81,7 +99,12 @@ function Vehicle({ onReady }: { onReady: () => void }) {
     return front ? prepared.registry.resolve(front.object) : undefined;
   }
   return <group onClick={(event) => {
-    if (!open || event.delta > 5) return;
+    if (event.delta > 5) return;
+    if (cockpit.active) {
+      if (hit(event)?.metadata.id === 'reference.node.50') { event.stopPropagation(); useCockpit.getState().inspectSteering(); }
+      return;
+    }
+    if (!open) return;
     const entry = hit(event); if (!entry) return;
     event.stopPropagation(); useExplorer.getState().select(entry.metadata.id);
   }} onPointerMove={(event) => { if (open) useExplorer.getState().hover(hit(event)?.metadata.id ?? null); }} onPointerLeave={() => useExplorer.getState().hover(null)}>
@@ -145,6 +168,8 @@ function CameraRig({ mobile }: { mobile: boolean }) {
   return <OrbitControls ref={controls} makeDefault target={[0, 0.6, 0]} minDistance={open || customization ? 0.8 : 4} maxDistance={disassembly ? 22 : 12} minPolarAngle={0.2} maxPolarAngle={Math.PI / 2 - 0.035} enableDamping dampingFactor={0.06} autoRotate={autoRotate} autoRotateSpeed={0.45} onStart={() => { moving.current = false; }} />;
 }
 export default function Showroom({ onReady }: { onReady: () => void }) {
+  const cockpit = useCockpit();
+  const cockpitReady = cockpit.active && cockpit.safety?.[cockpitViews[cockpit.view].eye].safe;
   const quality = useShowroom((s) => s.quality);
   const engineering = useEngineering((s) => s.active);
   const disassembly = useDisassembly((s) => s.active);
@@ -164,6 +189,6 @@ export default function Showroom({ onReady }: { onReady: () => void }) {
       <ContactShadows position={[0, 0.001, 0]} opacity={0.75} scale={14} blur={2.8} far={4} resolution={disassembly || engineering ? 256 : quality === 'high' ? 1024 : 512} color="#000000" frames={disassembly || engineering ? Infinity : 1} />
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.012, 0]} receiveShadow><planeGeometry args={[100, 100]} /><meshStandardMaterial color="#060805" metalness={0.12} roughness={0.85} envMapIntensity={0.02} /></mesh>
     </Suspense>
-    <CameraRig mobile={mobile} />
+    {cockpitReady ? <CockpitCamera/> : <CameraRig mobile={mobile} />}
   </Canvas>;
 }
