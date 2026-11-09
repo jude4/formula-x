@@ -1,3 +1,4 @@
+import { useDriving } from './driving-store';
 import { useCockpit } from './cockpit-store';
 import { create } from 'zustand';
 import { useCustomization } from './customization-store';
@@ -24,6 +25,7 @@ interface ExplorerState {
 export const useExplorer = create<ExplorerState>((set, get) => ({
   open: false, selectedId: null, hoveredId: null, inspectKey: 0, focus: null,
   setOpen(open) {
+    useDriving.getState().exit();
     useCockpit.getState().exit();
     useDisassembly.getState().exit();
     useEngineering.getState().exit();

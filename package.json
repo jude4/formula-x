@@ -12,6 +12,7 @@
     "assets:check": "node scripts/audit-vehicle.mjs --check"
   },
   "dependencies": {
+    "@dimforge/rapier3d-compat": "0.19.3",
     "@react-three/drei": "10.7.6",
     "@react-three/fiber": "9.4.0",
     "framer-motion": "12.23.24",
